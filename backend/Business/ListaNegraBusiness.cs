@@ -26,5 +26,12 @@ namespace backend.Business
         {
            return db.Listar();
         }
+
+        public void DeletarPessoa(int id)
+        {
+            
+           
+          db.DeletarPessoa(id);
+        }
     }
 }

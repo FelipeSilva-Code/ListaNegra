@@ -37,5 +37,15 @@ namespace backend.Utils
             return resp;
         
         }
+
+        public Models.TbListaNegra ConversorParaModeloTabelaExcluir(Models.Response.ListaNegraResponse resp)
+        {
+            Models.TbListaNegra tbLista = new Models.TbListaNegra();
+            tbLista.IdListaNegra = resp.ID;
+            tbLista.DtInclusao = resp.Inclusao;
+            tbLista.DsMotivo = resp.Motivo;
+            tbLista.NmPesso = resp.Nome;
+            return tbLista;
+        }
     }
 }

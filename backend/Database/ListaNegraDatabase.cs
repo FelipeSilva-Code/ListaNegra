@@ -21,5 +21,13 @@ namespace backend.Database
                 List<Models.TbListaNegra> lista = ctx.TbListaNegra.ToList();
                 return lista;
         }
+
+        public void DeletarPessoa(int id)
+        {
+           Models.TbListaNegra listaNegra = ctx.TbListaNegra.FirstOrDefault(x => x.IdListaNegra == id);
+           ctx.Remove(listaNegra);
+           ctx.SaveChanges();
+
+        }
     }
 }

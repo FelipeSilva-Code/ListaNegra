@@ -61,5 +61,15 @@ namespace backend.Controllers
             }
 
         }
+
+        [HttpDelete]
+        public void DeletarPessoa (int id)
+        {
+
+               
+                business.DeletarPessoa(id);
+           
+        }
+        
     }
 }
