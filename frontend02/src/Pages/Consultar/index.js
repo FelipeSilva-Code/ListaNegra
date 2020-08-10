@@ -26,13 +26,11 @@ export default function Consultar() {
   const deletarClick = async (id) => {
     loadingBar.current.continuousStart();
 
-    console.log("esse é o id" + id )
-
     await api.deletar(id);
 
-    console.log("esse é o id" + id )
-
     loadingBar.current.complete();
+
+    consultarClick();
 
     toast.dark("Excluido com sucesso");
   }
