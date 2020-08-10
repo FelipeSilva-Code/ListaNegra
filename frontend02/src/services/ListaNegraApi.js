@@ -17,7 +17,7 @@ export default class ListaNegraApi{
    }
 
    async deletar(id){
-     await api.delete('/listanegra', id);
+     await api.delete(`/listanegra/${id}` );
    }
 
 

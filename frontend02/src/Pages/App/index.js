@@ -16,7 +16,7 @@ function App() {
 
         <div>
           <h2>
-            <Link to="/consultar">Consultar</Link>
+            <Link to="/consultar">Consultar/Deletar</Link>
           </h2>
         </div>
 

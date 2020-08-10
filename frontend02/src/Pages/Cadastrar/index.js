@@ -9,17 +9,26 @@ const api = new ListaNegra()
 export default function Cadastrar() {
     const [nome, setNome] = useState("");
     const [motivo, setMotivo] = useState("");
+    const [inclusao, setInclusao] = useState();
+    const [local, setLocal] = useState();
+
 
     const salvarClick = async () => {
         
         const resp = await
         api.cadastrar({
             nome: nome,
-            motivo: motivo
+            motivo: motivo,
+            inclusao: inclusao,
+            local: local
+
         });
 
         toast.dark("Cadastrado na lista negra!!!")
     }
+
+
+  
     return(
         <div>
            
@@ -41,6 +50,24 @@ export default function Cadastrar() {
                 value={motivo}
                 onChange={e => setMotivo(e.target.value)}
                 />
+            </div>
+
+            <div>
+                <label>Data:</label>
+                <input type="date"
+                value={inclusao}
+                onChange={e => setInclusao(e.target.value)}
+                />
+            </div>
+
+            <div>
+                <label>Local:</label>
+                <select onChange={e => setLocal(e.target.value)} id="local">
+                    <option value="Escola">Escola</option>
+                    <option value="Trabalho">Trabalho</option>
+                    <option value="Rua">Rua</option>
+                    <option value="Outro">Outro</option>
+                </select>
             </div>
     
             <button onClick={salvarClick}>Cadastrar</button>

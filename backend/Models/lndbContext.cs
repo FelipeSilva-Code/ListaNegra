@@ -21,8 +21,8 @@ namespace backend.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-
-                optionsBuilder.UseMySql("server=localhost;user id=root;password=1234;database=lndb", x => x.ServerVersion("8.0.19-mysql"));
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+                optionsBuilder.UseMySql("server=localhost;user id=root;password=1234;database=lndb", x => x.ServerVersion("8.0.18-mysql"));
             }
         }
 
@@ -32,6 +32,10 @@ namespace backend.Models
             {
                 entity.HasKey(e => e.IdListaNegra)
                     .HasName("PRIMARY");
+
+                entity.Property(e => e.DsLocal)
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
 
                 entity.Property(e => e.DsMotivo)
                     .HasCharSet("utf8mb4")

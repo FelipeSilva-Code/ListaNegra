@@ -13,7 +13,8 @@ namespace backend.Utils
             Models.TbListaNegra listaNegra = new Models.TbListaNegra();
             listaNegra.NmPesso = req.Nome;
             listaNegra.DsMotivo = req.Motivo;
-            listaNegra.DtInclusao = DateTime.Now;
+            listaNegra.DtInclusao = req.Inclusao;
+            listaNegra.DsLocal = req.Local;
             return listaNegra;
         }
 
@@ -24,6 +25,7 @@ namespace backend.Utils
             resp.Inclusao = tbLista.DtInclusao;
             resp.Motivo = tbLista.DsMotivo;
             resp.Nome = tbLista.NmPesso;
+            resp.Local = tbLista.DsLocal;
             return resp;
         }
 
