@@ -1,0 +1,39 @@
+.containerConsultar {
+    background-color : #282c34;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    height : 100vh;;
+}
+.containerCentroConsultar{
+    display: flex;
+    width: 50%;
+    height: 75vh;
+    background-color: snow;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    justify-content: space-around;
+}
+.tituloConsultar{
+color : #282c34;
+
+}
+.btn-warning{
+    display: inline-flex;
+}
+.btnConsultar{
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+.tableConsultar{
+  height: 70%;
+  width: 90%;
+  overflow : scroll
+
+}
+.btn-danger{
+    height: 38px;
+}

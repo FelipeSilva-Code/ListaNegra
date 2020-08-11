@@ -1,0 +1,55 @@
+.containerCadastrar{
+    background-color : #282c34;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.containerCentroCadastrar{
+    display: flex;
+    align-items: center;
+    height: 75%;
+    background-color: rebeccapurple;
+    width: 45%;
+    border-radius: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+.tituloCadastrar{
+    margin-top: 15px;
+    color: white;
+}
+.inputsCadastrar{
+    width: 100%;
+    align-items: center;
+    height: 7%;
+    font-size:18px;
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.form-control{
+    width: 35%;
+    height: 100%;
+    display: inline-flex;
+}
+
+.btn-primary{
+    width: 150px;
+}
+@media(max-width:1000px)
+{
+    .containerCentroCadastrar{
+        width: 90%;
+    }
+    .form-control{
+        width: 70%;
+    }
+    .tituloCadastrar{
+        font-size: 25px;
+    }
+}
+
