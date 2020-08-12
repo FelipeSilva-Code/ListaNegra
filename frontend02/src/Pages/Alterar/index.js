@@ -12,11 +12,13 @@ export default function Alterar (props) {
 
     const loadingBar = useRef(null);
 
-     const [id, setId] = useState();
-     const [nome, setNome] = useState();
-     const [inclusao, setInclusao] = useState();
-     const [motivo, setMotivo] = useState();
-     const [local, setLocal] = useState();
+     const [id] = useState(props.location.state.id); //codigo que importa o estado da outra pagina
+     const [nome, setNome] = useState(props.location.state.nome);
+     const [inclusao, setInclusao] = useState(props.location.state.inclusao.substr(0, 10));
+     const [motivo, setMotivo] = useState(props.location.state.motivo);
+     const [local, setLocal] = useState(props.location.state.local);
+
+     
 
      const alterarClick = async () => {
 
@@ -25,81 +27,96 @@ export default function Alterar (props) {
         if(r === true){
          loadingBar.current.continuousStart();
 
-        await api.alterar(id, {
-            nome: nome,
-            inclusao: inclusao,
-            motivo: motivo,
-            local: local
-        });
+         //Se os nome do estado e do req forem iguais não precisa passar os dois
+          const request = {
+            nome,
+            inclusao,
+            motivo,
+            local
+          }
+
+        await api.alterar(id, request );
 
          loadingBar.current.complete();
        
         toast.dark("Alterado com sucesso!!!")
-    }
-       else{
+        }
+     
+        else{
            return "Você apertou Cancelar!!!"
        }
 
      }
 
 
-    return(
-       <>
-        <LoadingBar
-                height={4}
-                color="#f11946"
-                ref={loadingBar}
-            />
-            <Menu/>
+    return (
+      <>
+        <LoadingBar height={4} color="#f11946" ref={loadingBar} />
+        <Menu />
         <div className="containerAlterar">
-            <LoadingBar
-                height={4}
-                color="#f11946"
-                ref={loadingBar}
-            />
+          <LoadingBar height={4} color="#f11946" ref={loadingBar} />
 
-            
-
-            <div className="containerCentralAlterar">
- 
-
+          <div className="containerCentralAlterar">
             <h1>Alterar Informações</h1>
 
-
             <div className="inputsAlterar">
-                    <label>Nome: &nbsp; &nbsp;</label>
-                    <input onChange={(e) => setNome(e.target.value)} className="form-control" type="text"></input>
-            </div>
-
-            <div className="inputsAlterar">
-                    <label>Motivo:&nbsp; &nbsp;</label>
-                    <input onChange={(e) => setMotivo(e.target.value)} className="form-control" type="text"></input>
-            </div>
-
-            <div className="inputsAlterar">
-                    <label>Inclusao: &nbsp;</label>
-                    <input onChange={(e) => setInclusao(e.target.value)} className="form-control" type="date"></input>
+              <label>Nome: &nbsp; &nbsp;</label>
+              <input
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                className="form-control"
+                type="text"
+              ></input>
             </div>
 
             <div className="inputsAlterar">
-                    <label>Local: &nbsp; &nbsp; &nbsp;</label>
-                    <select onChange={(e) => setLocal(e.target.value)} className="form-control">
-                    <option value="Escola">Escola</option>
-                    <option value="Trabalho">Trabalho</option>
-                    <option value="Rua">Rua</option>
-                    <option value="Outro">Outro</option>
-                </select>
+              <label>Motivo:&nbsp; &nbsp;</label>
+              <input
+                value={motivo}
+                onChange={(e) => setMotivo(e.target.value)}
+                className="form-control"
+                type="text"
+              ></input>
             </div>
 
             <div className="inputsAlterar">
-                    <button onClick={alterarClick} className="btn btn-success">Alterar</button>
+              <label>Inclusao: &nbsp;</label>
+              <input
+                value={inclusao}
+                onChange={(e) => setInclusao(e.target.value)}
+                className="form-control"
+                type="date"
+              ></input>
             </div>
-            
-                      
+
+            <div className="inputsAlterar">
+              <label>Local: &nbsp; &nbsp; &nbsp;</label>
+              <select
+                value={local}
+                onChange={(e) => setLocal(e.target.value)}
+                className="form-control"
+              >
+                <option></option>
+                <option value="Escola">Escola</option>
+                <option value="Trabalho">Trabalho</option>
+                <option value="Rua">Rua</option>
+                <option value="Familía">Familia</option>
+                <option value="Estadio">Estadio</option>
+                <option value="Mercado">Mercado</option>
+                <option value="Internet">Internet</option>
+                <option value="Outro">Outro</option>
+              </select>
             </div>
-    
-         <ToastContainer/>
+
+            <div className="inputsAlterar">
+              <button onClick={alterarClick} className="btn btn-success">
+                Alterar
+              </button>
+            </div>
+          </div>
+
+          <ToastContainer />
         </div>
-        </>
-    )
+      </>
+    );
 }

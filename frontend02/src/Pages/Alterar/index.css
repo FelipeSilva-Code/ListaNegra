@@ -1,6 +1,6 @@
 .containerAlterar{
     height: 88vh;
-    background-color : #282c34;
+    background-color : #020a1a;
     width: 100%;
     display: flex;
     align-items: center;
@@ -11,7 +11,7 @@
 .containerCentralAlterar{
     height: 80vh;
     width: 50%;
-    background-color: rgb(7, 7, 95);
+    background-color : #031538;
     display: flex;
     align-items: center;
     flex-direction: column;

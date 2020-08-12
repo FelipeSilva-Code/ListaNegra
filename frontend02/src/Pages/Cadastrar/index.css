@@ -1,5 +1,5 @@
 .containerCadastrar{
-    background-color : #282c34;
+    background-color : #020a1a;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,9 +8,9 @@
 .containerCentroCadastrar{
     display: flex;
     align-items: center;
-    height: 75%;
-    background-color: rebeccapurple;
-    width: 45%;
+    height: 80%;
+    background-color : #031538;
+    width: 55%;
     border-radius: 10px;
     flex-direction: column;
     justify-content: space-between;
@@ -19,6 +19,10 @@
 .tituloCadastrar{
     margin-top: 15px;
     color: white;
+}
+span{
+    color: black;
+    font-weight: bold;
 }
 .inputsCadastrar{
     width: 100%;
@@ -32,8 +36,8 @@
     color: white;
 }
 .form-control{
-    width: 35%;
-    height: 100%;
+    width: 40%;
+    height: 110%;
     display: inline-flex;
 }
 

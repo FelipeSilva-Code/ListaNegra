@@ -70,10 +70,22 @@ namespace backend.Controllers
         }
 
         [HttpPut("{id}")]
-        public void Alterar (int id, Models.Request.ListaNegraRequest req)
+        public ActionResult<Models.TbListaNegra> Alterar (int id, Models.Request.ListaNegraRequest req)
+        { try
         {
-            Models.TbListaNegra lista = conversor.ConversorParaModeloTabela(req);
-            business.Alterar(id, lista);
+                Models.TbListaNegra lista = conversor.ConversorParaModeloTabela(req);
+                business.Alterar(id, lista);
+                return lista;
+                
+        }
+        catch (System.Exception ex)
+        {
+            
+            return BadRequest(new Models.Response.ErroResponse(
+                400, ex.Message
+            ));
+        }
+           
             
         }
         

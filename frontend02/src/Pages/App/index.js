@@ -1,9 +1,12 @@
 import React from 'react';
 import './App.css';
 import { Link } from 'react-router-dom';
+import Menu from '../../Components/Menu'
 
 function App() {
   return (
+<>
+    <Menu/>
     <div className="App">
       <header className="App-header">
         <h1>Lista Negra</h1>
@@ -23,6 +26,7 @@ function App() {
 
       </header>
     </div>
+    </>
   );
 }
 

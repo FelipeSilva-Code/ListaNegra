@@ -1,5 +1,5 @@
 .containerConsultar {
-    background-color : #282c34;
+    background-color : #020a1a;
     display : flex;
     align-items : center;
     justify-content : center;
@@ -9,14 +9,14 @@
     display: flex;
     width: 70%;
     height: 75vh;
-    background-color: snow;
+    background-color: rgb(26, 24, 24);
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
     justify-content: space-around;
 }
 .tituloConsultar{
-color : #282c34;
+color : whitesmoke
 
 }
 .btn-warning{
@@ -30,10 +30,17 @@ color : #282c34;
 }
 .tableConsultar{
   height: 70%;
-  width: 95%;
-  overflow : scroll
-
+  width: 100%;
+  overflow-y: scroll;
+  border-radius: 5px;
 }
 .btn-danger{
     height: 38px;
 }
+
+.btn-success {
+height : 38px;
+width: 15px;
+font-size: 12px;
+}
+
