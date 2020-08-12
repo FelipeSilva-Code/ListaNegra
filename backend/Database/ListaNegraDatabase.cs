@@ -29,5 +29,15 @@ namespace backend.Database
            ctx.SaveChanges();
 
         }
+
+        public void Alterar(int id, Models.TbListaNegra req)
+        {
+            Models.TbListaNegra listaNegra = ctx.TbListaNegra.FirstOrDefault(x => x.IdListaNegra == id);
+            listaNegra.NmPesso = req.NmPesso;
+            listaNegra.DtInclusao = req.DtInclusao;
+            listaNegra.DsMotivo = req.DsMotivo;
+            listaNegra.DsLocal = req.DsLocal;
+            ctx.SaveChanges();
+        }
     }
 }

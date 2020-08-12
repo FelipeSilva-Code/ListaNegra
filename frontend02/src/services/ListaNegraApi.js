@@ -20,6 +20,10 @@ export default class ListaNegraApi{
      await api.delete(`/listanegra/${id}` );
    }
 
+   async alterar(id, req){
+     await api.put(`/listanegra/${id}`, req)
+   }
+
 
 
 }

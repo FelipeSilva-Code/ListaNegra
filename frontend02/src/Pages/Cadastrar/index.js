@@ -3,6 +3,7 @@ import ListaNegra from '../../services/ListaNegraApi';
 import {ToastContainer, toast} from 'react-toastify';
 import  './index.css';
 import 'react-toastify/dist/ReactToastify.css'
+import Menu from "../../Components/Menu"
 
 const api = new ListaNegra()
 
@@ -24,6 +25,8 @@ export default function Cadastrar() {
     }
   
     return(
+        <>
+        <Menu/>
         <div className="containerCadastrar">
             <div className="containerCentroCadastrar">
             
@@ -72,5 +75,6 @@ export default function Cadastrar() {
                 <ToastContainer/>
             </div>
         </div>
+        </>
     )
 }

@@ -33,5 +33,10 @@ namespace backend.Business
            
           db.DeletarPessoa(id);
         }
+
+        public void Alterar(int id, Models.TbListaNegra req)
+        {
+            db.Alterar(id, req);
+        }
     }
 }

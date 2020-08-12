@@ -68,6 +68,14 @@ namespace backend.Controllers
         {               
             business.DeletarPessoa(id);
         }
+
+        [HttpPut("{id}")]
+        public void Alterar (int id, Models.Request.ListaNegraRequest req)
+        {
+            Models.TbListaNegra lista = conversor.ConversorParaModeloTabela(req);
+            business.Alterar(id, lista);
+            
+        }
         
     }
 }
