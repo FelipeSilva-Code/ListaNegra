@@ -1,6 +1,6 @@
 # ListaNegra
 
-Projeto Lista Negra com HTML5, CSS3 e ReactJs no Front-End e Api com .Net Core no Back-End.
+Projeto Lista Negra com ReactJs no Front-End e Api com .Net Core no Back-End.
 
 Primeiro projeto onde faço a conexão entre o Back-end com o Fron-End.
 
