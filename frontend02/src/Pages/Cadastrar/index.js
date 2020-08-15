@@ -10,12 +10,12 @@ const api = new ListaNegra()
 export default function Cadastrar() {
     const [nome, setNome] = useState("");
     const [motivo, setMotivo] = useState("");
-    const [inclusao, setInclusao] = useState();
-    const [local, setLocal] = useState();
+    const [inclusao, setInclusao] = useState("");
+    const [local, setLocal] = useState("");
 
     const salvarClick = async () => {
         
-      await api.cadastrar({
+    await api.cadastrar({
             nome: nome,
             motivo: motivo,
             inclusao: inclusao,
@@ -77,7 +77,7 @@ export default function Cadastrar() {
                 id="local"
                 value={local}
               >
-                <option></option>
+                <option value="" ></option>
                 <option value="Escola">Escola</option>
                 <option value="Trabalho">Trabalho</option>
                 <option value="Rua">Rua</option>

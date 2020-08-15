@@ -33,9 +33,9 @@ namespace backend.Controllers
             }
             catch (System.Exception ex)
             {
-                return BadRequest( 
-                    new Models.Response.ErroResponse(400, ex.Message)
-                );
+                return BadRequest( new Models.Response.ErroResponse(
+                    400, ex.Message
+                ));
             }  
        }
 

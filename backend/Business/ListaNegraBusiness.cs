@@ -17,6 +17,7 @@ namespace backend.Business
 
             if(tbLista.DsMotivo == string.Empty)
                throw new ArgumentException("O motivo é obrigatório");
+            
             if (tbLista.DtInclusao == null)
                 throw new ArgumentException("A data de inclusão é obrigatório");
 

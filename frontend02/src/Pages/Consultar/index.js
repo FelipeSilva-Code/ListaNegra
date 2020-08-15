@@ -23,6 +23,7 @@ export default function Consultar() {
     loadingBar.current.continuousStart();
 
     const lns = await api.consultar() 
+    
      setRegistros([...lns])
 
       loadingBar.current.complete();
@@ -64,7 +65,7 @@ export default function Consultar() {
             <h1 className="tituloConsultar">Consultar na Lista Negra</h1>
 
             <div className="tableConsultar">
-              <table className="table table-striped table-dark">
+              <table className="table table-hover">
                 <thead className="thead-dark">
                   <tr>
                     <th>ID</th>

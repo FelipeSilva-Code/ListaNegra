@@ -7,13 +7,18 @@ const api = axios.create({
 export default class ListaNegraApi{
 
    async cadastrar(ln) {
-        const resp = await api.post('/listanegra', ln);
-        return resp; 
+     try{
+     const resp = await api.post('/listanegra', ln);
+     return resp;
+    }catch(error){
+       console.log('Whoops! Houve um erro.', error.message || error)
+    }
    }
-
+ 
    async consultar(){
        const resp = await api.get('/listanegra');
        return resp.data;
+  
    }
 
    async deletar(id){
