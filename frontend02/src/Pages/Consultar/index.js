@@ -69,6 +69,7 @@ export default function Consultar() {
                 <thead className="thead-dark">
                   <tr>
                     <th>ID</th>
+                    <th>Foto</th>
                     <th>Nome</th>
                     <th>Motivo</th>
                     <th>Inclusao</th>
@@ -82,6 +83,9 @@ export default function Consultar() {
                   {registros.map((item) => (
                     <tr key={item.id}>
                       <td>#{item.id}</td>
+                      <td>
+                       <img src={api.buscarImagem(item.foto)} alt="" height="32"/>
+                      </td>
                       <td>{item.nome}</td>
                       <td>{item.motivo}</td>
                       <td>{new Date(item.inclusao + "Z").toLocaleString()}</td>

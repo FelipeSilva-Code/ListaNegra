@@ -9,7 +9,7 @@ namespace backend.Models
     public partial class TbListaNegra
     {
         [Key]
-        [Column("id_lista_negra", TypeName = "int(11)")]
+        [Column("id_lista_negra")]
         public int IdListaNegra { get; set; }
         [Column("nm_pesso", TypeName = "varchar(100)")]
         public string NmPesso { get; set; }
@@ -19,5 +19,7 @@ namespace backend.Models
         public DateTime? DtInclusao { get; set; }
         [Column("ds_local", TypeName = "varchar(100)")]
         public string DsLocal { get; set; }
+        [Column("ds_foto", TypeName = "varchar(100)")]
+        public string DsFoto { get; set; }
     }
 }

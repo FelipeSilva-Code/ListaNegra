@@ -6,14 +6,29 @@ const api = axios.create({
 
 export default class ListaNegraApi{
 
-   async cadastrar(ln) {
-     try{
-     const resp = await api.post('/listanegra', ln);
-     return resp;
-    }catch(error){
-       console.log('Whoops! Houve um erro.', error.message || error)
-    }
-   }
+  async cadastrar(ln) {
+    console.log(ln);
+
+    let formData = new FormData();
+    formData.append('nome', ln.nome);
+    formData.append('motivo', ln.motivo);
+    formData.append('local', ln.local);
+    formData.append('inclusao', ln.inclusao);
+    formData.append('foto', ln.foto);
+
+    const resp = await api.post('/listanegra', formData, {
+      headers: { 'content-type': 'multipart/form-data' }
+    });
+    console.log(resp);
+    return resp;
+  }
+
+  buscarImagem(foto) {
+    const urlFoto = api.defaults.baseURL + '/listanegra/foto/' + foto;
+    console.log(urlFoto);
+
+    return urlFoto;
+  }
  
    async consultar(){
        const resp = await api.get('/listanegra');

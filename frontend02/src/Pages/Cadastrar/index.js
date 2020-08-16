@@ -12,22 +12,31 @@ export default function Cadastrar() {
     const [motivo, setMotivo] = useState("");
     const [inclusao, setInclusao] = useState("");
     const [local, setLocal] = useState("");
+    const [foto, setFoto] = useState();
 
     const salvarClick = async () => {
         
-    await api.cadastrar({
+    const resp = await api.cadastrar({
             nome: nome,
             motivo: motivo,
             inclusao: inclusao,
-            local: local
+            local: local,
+            foto: foto
         });
-        
+
+      if (resp === "Whoops! Houve um erro."){
+        toast.error("Todos os campos são obrigatórios!!!")
+        }
+        else{
         toast.dark("Cadastrado na lista negra!!!")
 
         setNome("");
         setMotivo("");
         setLocal("dd/mm/aaaa");
         setInclusao("")
+        }
+
+        console.log(resp);
     }
   
     return (
@@ -88,6 +97,16 @@ export default function Cadastrar() {
                 <option value="Outro">Outro</option>
               </select>
             </div>
+            
+             <div className="inputsCadastrar">
+              <label>Foto:&nbsp;&nbsp;&nbsp; &nbsp;</label>
+              <input
+                className="form-control"
+                type="file"
+                onChange={(e) => setFoto(e.target.files[0])}
+              />
+            </div>
+            
 
             <div className="inputsCadastrar">
               <button className="btn btn-primary" onClick={salvarClick}>

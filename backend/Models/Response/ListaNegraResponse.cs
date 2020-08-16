@@ -12,5 +12,6 @@ namespace backend.Models.Response
         public string Motivo { get; set; }
         public DateTime? Inclusao { get; set; }
         public string Local {get; set;}
+        public string Foto { get; set; }
     }
 }
