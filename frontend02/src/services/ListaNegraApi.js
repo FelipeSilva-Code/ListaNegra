@@ -15,7 +15,7 @@ export default class ListaNegraApi{
     formData.append('local', ln.local);
     formData.append('inclusao', ln.inclusao);
     formData.append('foto', ln.foto);
-
+    
     const resp = await api.post('/listanegra', formData, {
       headers: { 'content-type': 'multipart/form-data' }
     });

@@ -12,17 +12,17 @@ namespace backend.Business
 
         public Models.TbListaNegra Inserir(Models.TbListaNegra tbLista)
         {
-            if(tbLista.NmPesso == string.Empty)
-               throw new ArgumentException("O nome é obrigatório");
+            if(string.IsNullOrEmpty(tbLista.NmPesso))
+               throw new ArgumentException("O nome é obrigatório!");
 
-            if(tbLista.DsMotivo == string.Empty)
-               throw new ArgumentException("O motivo é obrigatório");
+            if(string.IsNullOrEmpty(tbLista.DsMotivo))
+               throw new ArgumentException("O motivo é obrigatório!");
             
             if (tbLista.DtInclusao == null)
-                throw new ArgumentException("A data de inclusão é obrigatório");
+                throw new ArgumentException("A data de inclusão é obrigatória!");
 
-            if (tbLista.DsLocal == string.Empty)
-                throw new ArgumentException("O local é obrigatório");
+            if (string.IsNullOrEmpty(tbLista.DsLocal))
+                throw new ArgumentException("O local é obrigatório!");
 
             return db.Inserir(tbLista);
 
@@ -43,15 +43,15 @@ namespace backend.Business
         public void Alterar(int id, Models.TbListaNegra tbLista)
         {
             if (tbLista.NmPesso == string.Empty)
-                throw new ArgumentException("O nome é obrigatório");
+                throw new ArgumentException("O nome é obrigatório!");
 
             if (tbLista.DsMotivo == string.Empty)
-                throw new ArgumentException("O motivo é obrigatório");
+                throw new ArgumentException("O motivo é obrigatório!");
             if (tbLista.DtInclusao == null)
-                throw new ArgumentException("A data de inclusão é obrigatório");
+                throw new ArgumentException("A data de inclusão é obrigatório!");
 
             if (tbLista.DsLocal == string.Empty)
-                throw new ArgumentException("O local é obrigatório");
+                throw new ArgumentException("O local é obrigatório!");
 
             db.Alterar(id, tbLista);
         }

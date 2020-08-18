@@ -22,6 +22,8 @@ export default function Alterar (props) {
 
      const alterarClick = async () => {
 
+       try{
+
         let r = window.confirm("Você irá editar uma pessoa da lista negra!!!");
 
         if(r === true){
@@ -45,6 +47,9 @@ export default function Alterar (props) {
         else{
            return "Você apertou Cancelar!!!"
        }
+      }catch(e){
+        toast.error(e.response.data.erro)
+      }
 
      }
 
