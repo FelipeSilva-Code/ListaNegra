@@ -19,7 +19,7 @@ namespace backend.Models
         public DateTime? DtInclusao { get; set; }
         [Column("ds_local", TypeName = "varchar(100)")]
         public string DsLocal { get; set; }
-        [Column("ds_fotos", TypeName = "varchar(100)")]
-        public string DsFotos { get; set; }
+        [Column("ds_foto", TypeName = "varchar(100)")]
+        public string DsFoto { get; set; }
     }
 }

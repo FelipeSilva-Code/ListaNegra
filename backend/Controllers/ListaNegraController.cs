@@ -23,10 +23,17 @@ namespace backend.Controllers
             try
             {
                 Models.TbListaNegra tbLista = conversor.ConversorParaModeloTabela(request);
-                tbLista.DsFotos = gerenciadorFoto.GerarNovoNome(request.Foto.FileName);
-
+                if(request.Foto == null)
+                     tbLista.DsFoto = "user.png";
+                
+                else
+                     tbLista.DsFoto = gerenciadorFoto.GerarNovoNome(request.Foto.FileName);
+                
                 business.Inserir(tbLista);
-                gerenciadorFoto.SalvarFoto(tbLista.DsFotos, request.Foto);
+
+                if(request.Foto != null)
+                  gerenciadorFoto.SalvarFoto(tbLista.DsFoto, request.Foto);
+                
 
                 Models.Response.ListaNegraResponse resp = conversor.ConversorParaModeloResponse(tbLista);
 

@@ -48,7 +48,7 @@ namespace backend.Models
                 entity.HasKey(e => e.IdListaNegra)
                     .HasName("PRIMARY");
 
-                entity.Property(e => e.DsFotos)
+                entity.Property(e => e.DsFoto)
                     .HasDefaultValueSql("'user.png'")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_0900_ai_ci");

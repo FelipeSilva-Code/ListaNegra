@@ -12,12 +12,12 @@ export default function Cadastrar() {
     const [motivo, setMotivo] = useState("");
     const [inclusao, setInclusao] = useState("");
     const [local, setLocal] = useState("");
-    const [foto, setFoto] = useState();
+    const [foto, setFoto] = useState("user.png");
 
     const salvarClick = async () => {
       
       try {
-        const resp = await api.cadastrar({
+           await api.cadastrar({
                 nome: nome,
                 motivo: motivo,
                 inclusao: inclusao,
@@ -30,10 +30,9 @@ export default function Cadastrar() {
             setLocal("dd/mm/aaaa");
             setInclusao("")          
 
-          console.log(resp);
+          toast.dark("Cadastro na lista negra!!!")
       } catch(e) {
-        toast.error(e.response.data.erro);
-        console.log(e.response); 
+        toast.error(e.response.data.erro); 
       }
 
     }

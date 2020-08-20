@@ -26,7 +26,7 @@ namespace backend.Utils
             resp.Motivo = tbLista.DsMotivo;
             resp.Nome = tbLista.NmPesso;
             resp.Local = tbLista.DsLocal;
-            resp.Foto = tbLista.DsFotos;
+            resp.Foto = tbLista.DsFoto;
             return resp;
         }
 
