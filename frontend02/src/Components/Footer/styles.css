@@ -9,6 +9,7 @@
 @media(max-width:763px){
     .footer{
         height: 9vh;
+        width: 100vw;
     }
 
     .footer > div > h5{

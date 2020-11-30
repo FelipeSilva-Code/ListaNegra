@@ -109,7 +109,7 @@ export default function Cadastrar() {
 
             <div className="inputsCadastrar">
               <button className="btn btn-primary" onClick={salvarClick}>
-                Cadastrar
+                Adicionar
               </button>
             </div>
 

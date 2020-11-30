@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     height: 78vh;
+    min-width: 100vw;
 }
 .containerCentroCadastrar{
     display: flex;
@@ -46,16 +47,34 @@ span{
 .btn-primary{
     width: 150px;
 }
-@media(max-width:1000px)
-{
-    .containerCentroCadastrar{
-        width: 90%;
+
+
+@media(max-width:1000px) {
+    .containerCadastrar {
+        min-height: 82vh;
+        color: black;
     }
-    .form-control{
+    .containerCentroCadastrar {
+        width: 95%;
+        background-color: white;
+        color: black;
+    }
+    .form-control {
         width: 70%;
     }
-    .tituloCadastrar{
+    .tituloCadastrar {
         font-size: 25px;
+        color: black;
+    }
+    .inputsCadastrar{
+        color: black;
+    }
+
+    .inputsCadastrar > input, .inputsCadastrar > select {
+        width: 70%;
     }
 }
+
+
+
 
