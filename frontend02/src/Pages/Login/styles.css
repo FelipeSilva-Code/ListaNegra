@@ -3,13 +3,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
+    background-color: whitesmoke;
     justify-content: center;
 }
 
 .loginCont{
     height: 65vh;
-    background-color:  #1c4eb3;
+    box-shadow: 1px 1px 20px   #c7c4c4;
     width: 36%;
     display: flex;
     flex-direction: column;
@@ -17,6 +17,7 @@
     border-radius: 5px;
     color: black;
     justify-content: space-around;
+    background-color: white;
 }
 
 .loginCont > h1 {
@@ -50,7 +51,7 @@
 }
 
 .linkToCad:hover {
-   color: white;
+   color: black;
 }
 
 @media(max-width:930px) {
@@ -61,6 +62,7 @@
 .loginCont{
     width: 100%;
     background-color: white;
+    box-shadow: none;
 }
 
 }

@@ -3,11 +3,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: whitesmoke;
 }
 
 .contMeioCadastrar{
     height: 75vh;
-    background-color: #1c4eb3;
+    box-shadow: 1px 1px 20px   #c7c4c4;
     width: 50%;
     border-radius: 5px;
     display: flex;
@@ -15,6 +16,7 @@
     align-items: center;
     justify-content: space-around;
     color: black;
+    background-color: white;
 }
 
 .contMeioCadastrar > h1 {
@@ -57,6 +59,7 @@
         width: 95%;
         height: 70vh;
         background-color: white;
+        box-shadow: none;
     }
 
     .contMeioCadastrar > h1 {

@@ -1,5 +1,5 @@
 .containerCadastrar{
-    background-color : white;
+    background-color : whitesmoke;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,16 +10,17 @@
     display: flex;
     align-items: center;
     height: 80%;
-    background-color : #1c4eb3;
+    box-shadow: 1px 1px 20px   #c7c4c4;
     width: 75%;
     border-radius: 10px;
     flex-direction: column;
     justify-content: space-between;
+    background-color: white;
 
 }
 .tituloCadastrar{
     margin-top: 15px;
-    color: white;
+    color: black;
 }
 span{
     color: black;
@@ -34,7 +35,7 @@ span{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: black;
 }
 .inputsCadastrar > input, .inputsCadastrar > select {
     width: 40%;
