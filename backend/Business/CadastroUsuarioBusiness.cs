@@ -32,7 +32,10 @@ namespace backend.Business
                 throw new ArgumentException("O e-mail está incorreto.");
 
             if(String.IsNullOrEmpty(email))
-                throw new ArgumentException("O e-mail é obrigatório");    
+                throw new ArgumentException("O e-mail é obrigatório");   
+
+            if(!dbCadastro.VerSeEmailJaEstaCadastrado(email))
+                throw new ArgumentException("Esse e-mail já foi cadastrado.");     
         }
 
         public void ValidarSenha (string senha)

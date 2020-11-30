@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace backend.Utils
 {
-    public class CadastroUsuarioConversor
+    public class CadastroeLoginUsuarioConversor
     {
 
         public Models.TbUsuario ParaTbUsario (Models.Request.CadastroRequest cadastroRequest)

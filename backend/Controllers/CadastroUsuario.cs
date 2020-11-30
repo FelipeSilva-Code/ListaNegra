@@ -13,7 +13,7 @@ namespace backend.Controllers
     public class CadastroUsuario : ControllerBase
     {
         Business.CadastroUsuarioBusiness business = new Business.CadastroUsuarioBusiness();
-        Utils.CadastroUsuarioConversor conversor = new Utils.CadastroUsuarioConversor();
+        Utils.CadastroeLoginUsuarioConversor conversor = new Utils.CadastroeLoginUsuarioConversor();
 
 
         [HttpPost]

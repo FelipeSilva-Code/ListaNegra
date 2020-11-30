@@ -11,6 +11,14 @@ namespace backend.Database
     {
         Models.lndbContext ctx = new Models.lndbContext();
 
+        public bool VerSeEmailJaEstaCadastrado (string email)
+        {
+            Models.TbUsuario usuario = ctx.TbUsuario.FirstOrDefault(x => x.DsEmail == email);
+            bool x = usuario == null;
+
+            return x;
+        }
+        
         public Models.TbUsuario CadastrarUsuario (Models.TbUsuario tbUsuario) 
         {
             ctx.TbUsuario.Add(tbUsuario);
