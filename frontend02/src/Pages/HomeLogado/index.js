@@ -21,7 +21,7 @@ export default function HomeLogado() {
           <div className="containerLogadoMeio">
             <div>
               <h3>
-                <Link to="/adicionarNaLista">Adicionar na Lista Negra</Link>
+                <Link className="linkLogado" to="/adicionarNaLista">Adicionar na Lista Negra</Link>
               </h3>
               <div className="backgroundDoHomeLogado">
                 <img src={AdicionarNaLista} />
@@ -30,7 +30,7 @@ export default function HomeLogado() {
 
             <div>
               <h3>
-                <Link to="/consultar">Consultar na Lista Negra</Link>
+                <Link className="linkLogado" to="/consultar">Consultar na Lista Negra</Link>
               </h3>
               <div className="backgroundDoHomeLogado">
                 <img src={Listar} />

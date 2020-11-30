@@ -16,22 +16,35 @@ export default function HomeDeslogado () {
             <h3 className="tituloTotalDeslogado">
               Olá, Seja bem-vindo(a) ao Lista Negra
             </h3>
-            <h4> Aqui é um lugar criado para você dizer o que pensa, sem perder as amizades.</h4>
+            <h4 className="subtituloTotalDeslogado"> Aqui é um lugar criado para você dizer o que pensa, sem perder as amizades.</h4>
           </div>
 
           <div className="ContainerMeioHomeDeslogado">
             <div>
-              <h3>Ainda não tem uma conta?</h3>
-              <img className="imagemLogin" src={AddUser} />
-              <Link to="cadastrar"> <p className="textoDeslogado">Cadastrar-se</p> </Link>
+            
+              <h3 >Ainda não tem uma conta?</h3>
+              
+              <div>
+                <img className="imagemLogin" src={AddUser} />
+              </div>
+              
+              <div>
+                <Link to="cadastrar"> <p className="textoDeslogado">Cadastrar-se</p> </Link>
+              </div>
             </div>
 
             <div>
               <h3>Já tem uma conta?</h3>
-               <img className="imagemLogin" src={ImageLogin} />
-              <Link to="logar"> <p className="textoDeslogado">Entrar</p> </Link>
+              
+               <div>
+                 <img className="imagemLogin" src={ImageLogin} />
+               </div>
+              <div>
+                <Link to="logar"> <p className="textoDeslogado">Entrar</p> </Link>
+              </div>
             </div>
           </div>
+        
         </div>
 
         <Footer/>

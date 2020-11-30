@@ -26,6 +26,8 @@
 
 .containerLogadoMeio > div {
     width: 50%;
+    height: 30vh;
+
 }
 
 .backgroundDoHomeLogado{
@@ -38,4 +40,34 @@
     height: 100%;
 }
 
+@media(max-width:755px){
+    .HomeLogadoDiv{
+        min-height: 82vh;
+       
+    }
 
+    .tituloLogado{
+        font-size: 1.3rem;
+    }
+
+    .containerLogadoMeio{
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .containerLogadoMeio > div {
+        width: 100%;
+
+        margin-bottom: 20px;
+       
+    }
+
+    .linkLogado
+    {
+        font-size: 1.2rem;
+    }
+
+    .backgroundDoHomeLogado {
+        height: 13vh;
+    }
+}

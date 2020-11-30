@@ -18,3 +18,9 @@
     height: 75%;
     margin-top: 6px;
 }
+
+@media(max-width:763px){
+    .menu, .divHeader{
+        height: 9vh;
+    }
+}
