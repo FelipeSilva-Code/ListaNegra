@@ -102,12 +102,12 @@ export default function Cadastrar() {
               <label>Foto:&nbsp;&nbsp;&nbsp; &nbsp;</label>
               <input
                 onChange={(e) => setFoto(e.target.files[0])}
-                className="form-control-file"
+                className="inputFile form-control-file"
                 type="file"
               />
             </div>
 
-            <div className="inputsCadastrar">
+            <div className="inputFile">
               <button className="btn btn-primary" onClick={salvarClick}>
                 Adicionar
               </button>
@@ -117,7 +117,7 @@ export default function Cadastrar() {
           </div>
         </div>
 
-        <Footer/>
+        <Footer />
       </>
     );
 }

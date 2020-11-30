@@ -48,7 +48,7 @@
     height: 33px;
 }
 
-@media(max-width:755px){
+@media(max-width:760px){
     .ContainerCadastrar{
         min-height: 82vh;
     }

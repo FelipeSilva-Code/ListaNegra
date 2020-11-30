@@ -1,12 +1,52 @@
-import React from "react"
+import React, { useState } from "react"
 import "./styles.css";
 import Menu from "../../Components/Menu"
 import Footer from "../../Components/Footer"
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import ListaNegra from "../../services/ListaNegraApi";
+import { ToastContainer, toast } from "react-toastify";
+
+const api = new ListaNegra();
 
 export default function Login () {
+
+  const [email, setEmail] = useState();
+  const [senha, setSenha] = useState();
+
+
+  const history = useHistory();
+
+  const Logar = async () => {
+
+    try {
+
+        const request = {
+          "Email": email,
+          "Senha": senha,
+        };
+
+        let resp = await api.logar(request);
+
+        resp = resp.data;
+
+        
+       
+        history.push({
+          pathname:"homeLogado",
+          state:resp
+        });
+
+  
+      
+    } catch (e) {
+
+        toast.error(e.response.data.erro)
+    }
+
+  }
     return (
       <>
+        <ToastContainer/>
         <Menu />
 
         <div className="ContainerTotalLogin">
@@ -15,18 +55,18 @@ export default function Login () {
 
             <div className="inputLogin">
               <label>
-                E-mail<input className="inputEmailLogin form-control"></input>
+                E-mail<input onChange={e => setEmail(e.target.value)} className="inputEmailLogin form-control"></input>
               </label>
             </div>
 
             <div className="inputLogin">
               <label>
-                Senha<input className="inputSenhaLogin form-control"></input>
+                Senha<input type="password" onChange={e => setSenha(e.target.value)} className="inputSenhaLogin form-control"></input>
               </label>
             </div>
 
             <div className="botoesLogin">
-              <button className="btn btn-success">Entrar</button>
+              <button onClick={Logar} className="btn btn-success">Entrar</button>
             </div>
 
             <div className="irParaTelaDeCadastrar">

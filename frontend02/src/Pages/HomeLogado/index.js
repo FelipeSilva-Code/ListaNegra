@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Menu from '../../Components/Menu';
 import Footer from "../../Components/Footer"
@@ -6,14 +6,18 @@ import AdicionarNaLista from "../../assets/images/addNaLista.svg"
 import Listar from "../../assets/images/ListarNaLista.svg";
 import "./style.css"
 
-export default function HomeLogado() {
+export default function HomeLogado(props) {
+
+  const [responseLogado, setResponseLogado] = useState(props.location.state);
+
+
   return (
     <>
       <Menu />
       <div className="ContainerHomeLogado">
         <div className="HomeLogadoDiv">
           <h2 className="tituloLogado">
-            Olá, John
+            Olá, {responseLogado.nomeUsuario.substr(0, responseLogado.nomeUsuario.indexOf(" "))}
             <br />
             Desabafe com a gente.
           </h2>

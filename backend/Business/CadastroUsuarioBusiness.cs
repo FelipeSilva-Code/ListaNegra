@@ -28,13 +28,13 @@ namespace backend.Business
 
         public void ValidarEmail (string email)
         {
-            if (!email.Contains("@gmail.com") && !email.Contains("@hotmail.com") && !email.Contains("@bol.com"))
-                throw new ArgumentException("O e-mail está incorreto.");
-
             if(String.IsNullOrEmpty(email))
-                throw new ArgumentException("O e-mail é obrigatório");   
-
-            if(!dbCadastro.VerSeEmailJaEstaCadastrado(email))
+                throw new ArgumentException("O e-mail é obrigatório");  
+         
+            else if (!email.Contains("@gmail.com") && !email.Contains("@hotmail.com") && !email.Contains("@bol.com"))
+                throw new ArgumentException("O e-mail está incorreto.");
+  
+            else if(!dbCadastro.VerSeEmailJaEstaCadastrado(email))
                 throw new ArgumentException("Esse e-mail já foi cadastrado.");     
         }
 
@@ -49,7 +49,7 @@ namespace backend.Business
             if(string.IsNullOrEmpty(nome))
                 throw new ArgumentException("O nome é obrigatório");
 
-            if(!nome.Contains(" "))
+            else if(!nome.Contains(" "))
                 throw new ArgumentException("O sobrenome é obrigatório");
         }
 

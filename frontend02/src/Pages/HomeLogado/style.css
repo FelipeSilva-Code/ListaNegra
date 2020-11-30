@@ -40,7 +40,7 @@
     height: 100%;
 }
 
-@media(max-width:755px){
+@media(max-width:760px){
     .HomeLogadoDiv{
         min-height: 82vh;
        

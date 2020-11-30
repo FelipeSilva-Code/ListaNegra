@@ -6,6 +6,16 @@ const api = axios.create({
 
 export default class ListaNegraApi{
 
+  async logar (request){
+    const resp = api.post("/loginUsuario", request);
+    return resp;
+  }
+
+  async inscreverNoSistema (request){
+    const resp = api.post("/cadastroUsuario", request);
+    return resp;
+  }
+
   async cadastrar(ln) {
     console.log(ln);
 

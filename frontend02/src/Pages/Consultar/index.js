@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import './index.css'
 import { Link } from 'react-router-dom';
 import Menu from '../../Components/Menu';
+import Footer from "../../Components/Footer"
 
 
 
@@ -121,6 +122,8 @@ export default function Consultar() {
             <ToastContainer />
           </div>
         </div>
+
+        <Footer/>
       </>
     );  
 }

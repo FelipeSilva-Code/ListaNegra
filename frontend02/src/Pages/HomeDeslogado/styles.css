@@ -51,7 +51,7 @@
     text-decoration: none;
 }
 
-@media(max-width:755px){
+@media(max-width:760px){
     .containerDeslogado
     {
         background-color: white;

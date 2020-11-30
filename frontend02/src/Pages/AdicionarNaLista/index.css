@@ -55,7 +55,7 @@ span{
         color: black;
     }
     .containerCentroCadastrar {
-        width: 95%;
+        width: 95vw;
         background-color: white;
         color: black;
     }
@@ -72,6 +72,10 @@ span{
 
     .inputsCadastrar > input, .inputsCadastrar > select {
         width: 70%;
+    }
+
+    .inputFile{
+        width: 20%;
     }
 }
 
