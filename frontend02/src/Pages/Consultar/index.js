@@ -66,9 +66,8 @@ export default function Consultar() {
 
             <div className="tableConsultar">
               <table className="table table-hover">
-                <thead className="thead-dark">
+                <thead className="thead">
                   <tr>
-                    <th>ID</th>
                     <th>Foto</th>
                     <th>Nome</th>
                     <th>Motivo</th>
@@ -82,17 +81,16 @@ export default function Consultar() {
                 <tbody>
                   {registros.map((item) => (
                     <tr key={item.id}>
-                      <td>#{item.id}</td>
                       <td>
                        <img src={api.buscarImagem(item.foto)} alt="" height="32"/>
                       </td>
                       <td>{item.nome}</td>
                       <td>{item.motivo}</td>
-                      <td>{new Date(item.inclusao + "Z").toLocaleString()}</td>
+                      <td>{new Date(item.inclusao).toLocaleString()}</td>
                       <td>{item.local}</td>
                       <td>
                         <button
-                          className="btn btn-danger"
+                          className="DeletarConsult btn btn-danger"
                           onClick={() => deletarClick(item.id)}
                         >
                           Deletar
@@ -100,7 +98,7 @@ export default function Consultar() {
                       </td>
                       <td>
                         
-                        <Link className="btn btn-success" to={{
+                        <Link className="AlterarConsult btn btn-success" to={{
                           pathname:"/alterar",
                           state: item
                         }}>

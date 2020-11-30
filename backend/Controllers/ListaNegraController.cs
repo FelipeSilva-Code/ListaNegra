@@ -97,7 +97,7 @@ namespace backend.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult<Models.TbListaNegra> Alterar(int id, Models.Request.ListaNegraRequest req)
+        public ActionResult<Models.TbListaNegra> Alterar(int id, [FromForm]Models.Request.ListaNegraRequest req)
         {
             try
             {

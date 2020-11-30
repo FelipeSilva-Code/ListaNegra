@@ -1,120 +1,50 @@
-import React, { useState} from "react";
-import ListaNegra from '../../services/ListaNegraApi';
-import {ToastContainer, toast} from 'react-toastify';
-import  './index.css';
-import 'react-toastify/dist/ReactToastify.css'
+import React from "react";
+import "./styles.css";
 import Menu from "../../Components/Menu"
+import Footer from "../../Components/Footer"
+import { Link } from "react-router-dom";
 
-const api = new ListaNegra()
+export default function Cadastrar () {
+    return(
+        <>
+        <Menu/>
+          <div className="ContainerCadastrar">
 
-export default function Cadastrar() {
-    const [nome, setNome] = useState("");
-    const [motivo, setMotivo] = useState("");
-    const [inclusao, setInclusao] = useState("");
-    const [local, setLocal] = useState("");
-    const [foto, setFoto] = useState("user.png");
+              <div className="contMeioCadastrar">
+                  <h1>Crie sua conta</h1>
 
-    const salvarClick = async () => {
-      
-      try {
-           await api.cadastrar({
-                nome: nome,
-                motivo: motivo,
-                inclusao: inclusao,
-                local: local,
-                foto: foto
-            });
+                  <div className="loginInputNome">
+                    <label className="loginInput">Nome:<input className="form-control" type="text" /></label>
+                  </div>
 
-            setNome("");
-            setMotivo("");
-            setLocal("dd/mm/aaaa");
-            setInclusao("")          
+                  <div className="loginInputNome">
+                     <label className="loginInput">E-mail:<input className="form-control" type="text" /></label>
+                  </div>
 
-          toast.dark("Cadastro na lista negra!!!")
-      } catch(e) {
-        toast.error(e.response.data.erro); 
-      }
+                  <div className="loginInputSenha">
+                     <label >Senha:<input type="password" className="inputSenhaLogin form-control" /></label>
+                     <label >Confirme a Senha:<input className="inputSenhaLogin form-control" type="password" /></label>
+                  </div>
 
-    }
-  
-    return (
-      <>
-        <Menu />
-        <div className="containerCadastrar">
-          <div className="containerCentroCadastrar">
-            <div>
-              <h2 className="tituloCadastrar">Cadastrar na <span>Lista Negra</span></h2>
-            </div>
+                  <div>
+                      <button className="btn btn-success">Cadastrar</button>
+                  </div>
 
-            <div className="inputsCadastrar">
-              <label>Nome:&nbsp; &nbsp;</label>
-              <input
-                className="form-control"
-                type="text"
-                value={nome}
-                onChange={(e) => setNome(e.target.value)}
-              />
-            </div>
+                  <div className="irParaTelaDeCadastrar">
+                        <p>
+                            Já tem uma conta? <br />
+                            <Link className="linkToCad" to="/logar">
+                            Logar
+                            </Link>
+                        </p>
+                  </div>
 
-            <div className="inputsCadastrar">
-              <label>Motivo: &nbsp; </label>
-              <input
-                className="form-control"
-                type="text"
-                value={motivo}
-                onChange={(e) => setMotivo(e.target.value)}
-              />
-            </div>
 
-            <div className="inputsCadastrar">
-              <label>Data:&nbsp;&nbsp;&nbsp; &nbsp;</label>
-              <input
-                className="form-control"
-                type="date"
-                value={inclusao}
-                onChange={(e) => setInclusao(e.target.value)}
-              />
-            </div>
+              </div>
 
-            <div className="inputsCadastrar">
-              <label>Local: &nbsp; &nbsp;</label>
-              <select
-                className="form-control"
-                onChange={(e) => setLocal(e.target.value)}
-                id="local"
-                value={local}
-              >
-                <option value="" ></option>
-                <option value="Escola">Escola</option>
-                <option value="Trabalho">Trabalho</option>
-                <option value="Rua">Rua</option>
-                <option value="Familía">Familia</option>
-                <option value="Estadio">Estadio</option>
-                <option value="Mercado">Mercado</option>
-                <option value="Internet">Internet</option>
-                <option value="Outro">Outro</option>
-              </select>
-            </div>
-            
-             <div className="inputsCadastrar">
-              <label>Foto:&nbsp;&nbsp;&nbsp; &nbsp;</label>
-              <input
-                className="form-control"
-                type="file"
-                onChange={(e) => setFoto(e.target.files[0])}
-              />
-            </div>
-            
-
-            <div className="inputsCadastrar">
-              <button className="btn btn-primary" onClick={salvarClick}>
-                Cadastrar
-              </button>
-            </div>
-
-            <ToastContainer />
           </div>
-        </div>
-      </>
-    );
+        
+        <Footer/>
+        </>
+    )
 }

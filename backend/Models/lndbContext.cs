@@ -15,41 +15,28 @@ namespace backend.Models
         {
         }
 
-        public virtual DbSet<Lndb> Lndb { get; set; }
         public virtual DbSet<TbListaNegra> TbListaNegra { get; set; }
+        public virtual DbSet<TbUsuario> TbUsuario { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySql("server=localhost;user id=root;password=1234;database=lndb", x => x.ServerVersion("8.0.18-mysql"));
+                optionsBuilder.UseMySql("server=localhost;user id=root;password=1234;database=lndb", x => x.ServerVersion("8.0.19-mysql"));
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Lndb>(entity =>
-            {
-                entity.HasKey(e => e.IdListaNegra)
-                    .HasName("PRIMARY");
-
-                entity.Property(e => e.DsMotivo)
-                    .HasCharSet("utf8mb4")
-                    .HasCollation("utf8mb4_0900_ai_ci");
-
-                entity.Property(e => e.NmPessoa)
-                    .HasCharSet("utf8mb4")
-                    .HasCollation("utf8mb4_0900_ai_ci");
-            });
-
             modelBuilder.Entity<TbListaNegra>(entity =>
             {
                 entity.HasKey(e => e.IdListaNegra)
                     .HasName("PRIMARY");
 
+                entity.HasIndex(e => e.IdUsuario)
+                    .HasName("id_usuario");
+
                 entity.Property(e => e.DsFoto)
-                    .HasDefaultValueSql("'user.png'")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_0900_ai_ci");
 
@@ -61,7 +48,31 @@ namespace backend.Models
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_0900_ai_ci");
 
-                entity.Property(e => e.NmPesso)
+                entity.Property(e => e.NmPessoa)
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.HasOne(d => d.IdUsuarioNavigation)
+                    .WithMany(p => p.TbListaNegra)
+                    .HasForeignKey(d => d.IdUsuario)
+                    .OnDelete(DeleteBehavior.Cascade)
+                    .HasConstraintName("tb_lista_negra_ibfk_1");
+            });
+
+            modelBuilder.Entity<TbUsuario>(entity =>
+            {
+                entity.HasKey(e => e.IdUsuario)
+                    .HasName("PRIMARY");
+
+                entity.Property(e => e.DsEmail)
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.DsSenha)
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.NmUsuario)
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_0900_ai_ci");
             });

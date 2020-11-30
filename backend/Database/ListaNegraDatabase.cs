@@ -33,7 +33,7 @@ namespace backend.Database
         public void Alterar(int id, Models.TbListaNegra req)
         {
             Models.TbListaNegra listaNegra = ctx.TbListaNegra.FirstOrDefault(x => x.IdListaNegra == id);
-            listaNegra.NmPesso = req.NmPesso;
+            listaNegra.NmPessoa = req.NmPessoa;
             listaNegra.DtInclusao = req.DtInclusao;
             listaNegra.DsMotivo = req.DsMotivo;
             listaNegra.DsLocal = req.DsLocal;

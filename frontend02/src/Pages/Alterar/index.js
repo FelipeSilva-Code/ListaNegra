@@ -17,37 +17,36 @@ export default function Alterar (props) {
      const [inclusao, setInclusao] = useState(props.location.state.inclusao.substr(0, 10));
      const [motivo, setMotivo] = useState(props.location.state.motivo);
      const [local, setLocal] = useState(props.location.state.local);
+     const [foto, setFoto] = useState(props.location.state.foto);
+
+     console.log(foto)
 
      
 
      const alterarClick = async () => {
 
        try{
-
-        let r = window.confirm("Você irá editar uma pessoa da lista negra!!!");
-
-        if(r === true){
          loadingBar.current.continuousStart();
 
          //Se os nome do estado e do req forem iguais não precisa passar os dois
           const request = {
-            nome,
-            inclusao,
-            motivo,
-            local
-          }
+            nome: nome,
+            motivo: motivo,
+            inclusao: inclusao,
+            local: local,
+            foto: foto,
+          };
+
+          console.log(request);
 
         await api.alterar(id, request );
 
-         loadingBar.current.complete();
+        loadingBar.current.complete();
        
         toast.dark("Alterado com sucesso!!!")
-        }
      
-        else{
-           return "Você apertou Cancelar!!!"
-       }
       }catch(e){
+        console.log(e.response.data)
         toast.error(e.response.data.erro)
       }
 
@@ -111,6 +110,15 @@ export default function Alterar (props) {
                 <option value="Internet">Internet</option>
                 <option value="Outro">Outro</option>
               </select>
+            </div>
+
+            <div className="inputsAlterar">
+              <label>Foto: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <input
+                onChange={(e) => setFoto(e.target.files[0])}
+                className="form-control-file"
+                type="file"
+              ></input>
             </div>
 
             <div className="inputsAlterar">

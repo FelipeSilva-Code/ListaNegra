@@ -12,7 +12,7 @@ namespace backend.Business
 
         public Models.TbListaNegra Inserir(Models.TbListaNegra tbLista)
         {
-            if(string.IsNullOrEmpty(tbLista.NmPesso))
+            if(string.IsNullOrEmpty(tbLista.NmPessoa))
                throw new ArgumentException("O nome é obrigatório!");
 
             if(string.IsNullOrEmpty(tbLista.DsMotivo))
@@ -42,7 +42,7 @@ namespace backend.Business
 
         public void Alterar(int id, Models.TbListaNegra tbLista)
         {
-            if (tbLista.NmPesso == string.Empty)
+            if (tbLista.NmPessoa == string.Empty)
                 throw new ArgumentException("O nome é obrigatório!");
 
             if (tbLista.DsMotivo == string.Empty)

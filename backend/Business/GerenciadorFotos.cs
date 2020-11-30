@@ -17,9 +17,7 @@ namespace backend.Business
         }
 
         public void SalvarFoto(string nome, IFormFile foto)
-        {
-            
-              
+        {    
             string caminhoFoto = Path.Combine(AppContext.BaseDirectory, "Storage", "Fotos", nome);
 
             using (FileStream fs = new FileStream(caminhoFoto, FileMode.Create))

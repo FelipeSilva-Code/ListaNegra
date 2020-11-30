@@ -1,0 +1,41 @@
+.HomeLogadoDiv {
+
+    background-color: white;
+    min-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+.ContainerHomeLogado{
+    text-align: center;
+}
+
+.tituloLogado{
+    margin-top: 50px;
+}
+
+.containerLogadoMeio{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+
+}
+
+.containerLogadoMeio > div {
+    width: 50%;
+}
+
+.backgroundDoHomeLogado{
+    margin-top: 50px;
+    height: 24vh;
+}
+
+.backgroundDoHomeLogado > img {
+    width: 100%;
+    height: 100%;
+}
+
+

@@ -1,15 +1,15 @@
 .containerCadastrar{
-    background-color : #020a1a;
+    background-color : white;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 88vh;
+    height: 78vh;
 }
 .containerCentroCadastrar{
     display: flex;
     align-items: center;
     height: 80%;
-    background-color : #123988;
+    background-color : #1c4eb3;
     width: 75%;
     border-radius: 10px;
     flex-direction: column;
@@ -35,11 +35,13 @@ span{
     align-items: center;
     color: white;
 }
-.form-control{
+.inputsCadastrar > input, .inputsCadastrar > select {
     width: 40%;
     height: 110%;
     display: inline-flex;
 }
+
+
 
 .btn-primary{
     width: 150px;

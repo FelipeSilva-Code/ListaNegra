@@ -1,18 +1,24 @@
 import React from 'react';
 import {Switch, BrowserRouter, Route} from 'react-router-dom'
-import Cadastrar from './Pages/Cadastrar';
+import AdicionarNaLista from './Pages/AdicionarNaLista';
 import Consultar from './Pages/Consultar';
-import App from './Pages/App';
+import HomeLogado from "./Pages/HomeLogado"
 import Alterar from './Pages/Alterar';
+import HomeDeslogado from "./Pages/HomeDeslogado"
+import Login from "./Pages/Login"
+import Cadastrar from './Pages/Cadastrar';
 
 export default function Routes () {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact component={App}></Route>
-          <Route path="/cadastrar" exact component={Cadastrar}></Route>
+          <Route path="/" exact component={HomeDeslogado}></Route>
+          <Route path="/homeLogado" exact component={HomeLogado}/>
+          <Route path="/adicionarNaLista" exact component={AdicionarNaLista}></Route>
           <Route path="/consultar" exact component={Consultar}></Route>
           <Route path="/alterar" exact component={Alterar}></Route>
+          <Route path="/logar" exact component={Login}></Route>
+          <Route path="/cadastrar" exact component={Cadastrar}/>
         </Switch>
       </BrowserRouter>
     );

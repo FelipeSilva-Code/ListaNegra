@@ -1,6 +1,5 @@
 .containerAlterar{
     height: 88vh;
-    background-color : #020a1a;
     width: 100%;
     display: flex;
     align-items: center;
@@ -11,7 +10,7 @@
 .containerCentralAlterar{
     height: 80vh;
     width: 50%;
-    background-color : #031538;
+    background-color : #1c4eb3;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -26,9 +25,16 @@
     height: 5vh;
     color: white;
     width: 100%;
-    font-size: 20px;
+    font-size: 1rem;
 }
+
+.inputsAlterar > input, .inputsAlterar > select {
+    width: 40%;
+    height: 110%;
+    display: inline-flex;
+}
+
 .btn-success{
     width: 100px;
-    font-size: 18px;
+    font-size: 1rem;
 }

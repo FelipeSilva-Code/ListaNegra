@@ -9,17 +9,23 @@ namespace backend.Models
     public partial class TbListaNegra
     {
         [Key]
-        [Column("id_lista_negra", TypeName = "int(11)")]
+        [Column("id_lista_negra")]
         public int IdListaNegra { get; set; }
-        [Column("nm_pesso", TypeName = "varchar(100)")]
-        public string NmPesso { get; set; }
-        [Column("ds_motivo", TypeName = "varchar(200)")]
+        [Column("id_usuario")]
+        public int? IdUsuario { get; set; }
+        [Column("nm_pessoa", TypeName = "varchar(100)")]
+        public string NmPessoa { get; set; }
+        [Column("ds_motivo", TypeName = "varchar(100)")]
         public string DsMotivo { get; set; }
         [Column("dt_inclusao", TypeName = "datetime")]
         public DateTime? DtInclusao { get; set; }
-        [Column("ds_local", TypeName = "varchar(100)")]
+        [Column("ds_local", TypeName = "varchar(50)")]
         public string DsLocal { get; set; }
-        [Column("ds_foto", TypeName = "varchar(100)")]
+        [Column("ds_foto", TypeName = "varchar(50)")]
         public string DsFoto { get; set; }
+
+        [ForeignKey(nameof(IdUsuario))]
+        [InverseProperty(nameof(TbUsuario.TbListaNegra))]
+        public virtual TbUsuario IdUsuarioNavigation { get; set; }
     }
 }

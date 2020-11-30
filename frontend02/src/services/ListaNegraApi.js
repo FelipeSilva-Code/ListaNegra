@@ -40,8 +40,19 @@ export default class ListaNegraApi{
      await api.delete(`/listanegra/${id}` );
    }
 
-   async alterar(id, req){
-     await api.put(`/listanegra/${id}`, req)
+   async alterar(id, ln){
+       let formData = new FormData();
+       formData.append("nome", ln.nome);
+       formData.append("motivo", ln.motivo);
+       formData.append("local", ln.local);
+       formData.append("inclusao", ln.inclusao);
+       formData.append("foto", ln.foto);
+
+       const resp = await api.put(`/listanegra/${id}`, formData, {
+         headers: { "content-type": "multipart/form-data" },
+       });
+       console.log(resp);
+
    }
 
 

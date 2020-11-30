@@ -1,5 +1,5 @@
 .containerConsultar {
-    background-color : #020a1a;
+    background-color : white;
     display : flex;
     align-items : center;
     justify-content : center;
@@ -9,7 +9,7 @@
     display: flex;
     width: 70%;
     height: 75vh;
-    background-color : #123988;
+    background-color : #1c4eb3;
     flex-direction: column;
     align-items: center;
     border-radius: 10px;
@@ -29,8 +29,8 @@ color : whitesmoke
     justify-content: center;
 }
 .tableConsultar{
-  height: 70%;
-  width: 98%;
+  max-height: 70%;
+  width: 100%;
   overflow-y: scroll;
 }
 .btn-danger{
@@ -44,7 +44,7 @@ font-size: 12px;
 }
 .table-hover{
     color: black;
-    background-color: seashell;
+    background-color: white;
 }
 
 

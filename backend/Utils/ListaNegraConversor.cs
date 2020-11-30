@@ -11,7 +11,7 @@ namespace backend.Utils
         public Models.TbListaNegra ConversorParaModeloTabela (Models.Request.ListaNegraRequest req)
         {
             Models.TbListaNegra listaNegra = new Models.TbListaNegra();
-            listaNegra.NmPesso = req.Nome;
+            listaNegra.NmPessoa = req.Nome;
             listaNegra.DsMotivo = req.Motivo;
             listaNegra.DtInclusao = req.Inclusao;
             listaNegra.DsLocal = req.Local;
@@ -24,7 +24,7 @@ namespace backend.Utils
             resp.ID = tbLista.IdListaNegra;
             resp.Inclusao = tbLista.DtInclusao;
             resp.Motivo = tbLista.DsMotivo;
-            resp.Nome = tbLista.NmPesso;
+            resp.Nome = tbLista.NmPessoa;
             resp.Local = tbLista.DsLocal;
             resp.Foto = tbLista.DsFoto;
             return resp;
@@ -47,7 +47,7 @@ namespace backend.Utils
             tbLista.IdListaNegra = resp.ID;
             tbLista.DtInclusao = resp.Inclusao;
             tbLista.DsMotivo = resp.Motivo;
-            tbLista.NmPesso = resp.Nome;
+            tbLista.NmPessoa = resp.Nome;
             return tbLista;
         }
     }

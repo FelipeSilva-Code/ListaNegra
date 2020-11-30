@@ -1,0 +1,48 @@
+.containerDeslogado{
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;   
+  text-align: center;
+  color: rgb(44, 43, 43);
+  background-color: rgb(238, 238, 238);
+}
+
+.tituloDeslogado{
+    margin-top: 50px;
+    
+}
+
+.tituloTotalDeslogado{
+    font-size: 2rem;
+}
+.ContainerMeioHomeDeslogado{
+
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    align-items: center;
+    margin-top: 40px;
+
+}
+
+.ContainerMeioHomeDeslogado > div {
+    width: 50%;
+ 
+    height: 10vh;
+}
+
+
+.imagemLogin{
+    width: 200px;
+    height: 200px;
+}
+
+.textoDeslogado{
+    font-size: 1.5rem;
+    
+}
+
+.textoDeslogado:hover{
+    text-decoration: none;
+}
