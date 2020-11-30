@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import './index.css'
 import ListaNegra from '../../services/ListaNegraApi';
 import { ToastContainer, toast } from 'react-toastify';
-import LoadingBar from 'react-top-loading-bar';
 import 'react-toastify/dist/ReactToastify.css';
 import Menu from  '../../Components/Menu'
 
@@ -26,7 +25,7 @@ export default function Alterar (props) {
      const alterarClick = async () => {
 
        try{
-         loadingBar.current.continuousStart();
+    
 
          //Se os nome do estado e do req forem iguais não precisa passar os dois
           const request = {
@@ -40,8 +39,6 @@ export default function Alterar (props) {
           console.log(request);
 
         await api.alterar(id, request );
-
-        loadingBar.current.complete();
        
         toast.dark("Alterado com sucesso!!!")
      
@@ -55,10 +52,10 @@ export default function Alterar (props) {
 
     return (
       <>
-        <LoadingBar height={4} color="#f11946" ref={loadingBar} />
+       
         <Menu />
         <div className="containerAlterar">
-          <LoadingBar height={4} color="#f11946" ref={loadingBar} />
+         
 
           <div className="containerCentralAlterar">
             <h1>Alterar Informações</h1>

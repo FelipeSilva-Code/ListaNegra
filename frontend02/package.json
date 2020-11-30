@@ -1,7 +1,7 @@
 {
   "name": "siteaulas",
   "version": "0.1.0",
-  "private": false,
+  "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -11,8 +11,7 @@
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "react-toastify": "^6.0.8",
-    "react-top-loading-bar": "^2.0.0"
+    "react-toastify": "^6.0.8"
   },
   "scripts": {
     "start": "react-scripts start",
