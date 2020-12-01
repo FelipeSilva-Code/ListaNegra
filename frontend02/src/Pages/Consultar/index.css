@@ -7,7 +7,7 @@
 }
 .containerCentroConsultar{
     display: flex;
-    width: 70%;
+    width: 90%;
     height: 68vh;
     flex-direction: column;
     align-items: center;
@@ -46,6 +46,14 @@ font-size: 12px;
     background-color: white;
 }
 
+.listaVaziaDiv{
+
+    text-align: center;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 @media(max-width:630px) {

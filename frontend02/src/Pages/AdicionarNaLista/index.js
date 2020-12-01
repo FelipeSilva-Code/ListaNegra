@@ -8,7 +8,8 @@ import Footer from "../../Components/Footer"
 
 const api = new ListaNegra()
 
-export default function Cadastrar() {
+export default function Cadastrar(props) {
+    const [responseLogado, setResponseLogado] = useState(props.location.state)
     const [nome, setNome] = useState("");
     const [motivo, setMotivo] = useState("");
     const [inclusao, setInclusao] = useState("");
@@ -19,11 +20,12 @@ export default function Cadastrar() {
       
       try {
            await api.cadastrar({
-                nome: nome,
-                motivo: motivo,
-                inclusao: inclusao,
-                local: local,
-                foto: foto
+                "idUsuario": responseLogado.idUsuario,
+                "nome": nome,
+                "motivo": motivo,
+                "inclusao": inclusao,
+                "local": local,
+                "foto": foto
             });
 
             setNome("");
@@ -31,8 +33,9 @@ export default function Cadastrar() {
             setLocal("dd/mm/aaaa");
             setInclusao("")          
 
-          toast.dark("Cadastro na lista negra!!!")
+          toast.dark("Adicionado na lista negra!!!")
       } catch(e) {
+
         toast.error(e.response.data.erro); 
       }
 

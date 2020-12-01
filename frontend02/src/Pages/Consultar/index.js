@@ -11,7 +11,9 @@ import Footer from "../../Components/Footer"
 
 const api = new ListaNegraApi();
 
-export default function Consultar() {
+export default function Consultar( props ) {
+
+  const [responseLogado, setResponseLogado] = useState(props.location.state);
     
   const loadingBar = useRef(null);
   
@@ -23,7 +25,7 @@ export default function Consultar() {
   
     loadingBar.current.continuousStart();
 
-    const lns = await api.consultar() 
+    const lns = await api.consultar(responseLogado.idUsuario); 
     
      setRegistros([...lns])
 
@@ -63,54 +65,72 @@ export default function Consultar() {
           <div className="containerCentroConsultar">
             <LoadingBar height={4} color="#f11946" ref={loadingBar} />
 
-            <h1 className="tituloConsultar">Consultar na Lista Negra</h1>
+            <h1 className="tituloConsultar">Sua Lista Negra</h1>
 
             <div className="tableConsultar">
-              <table className="table table-hover">
-                <thead className="thead">
-                  <tr>
-                    <th>Foto</th>
-                    <th>Nome</th>
-                    <th>Motivo</th>
-                    <th>Inclusao</th>
-                    <th>Local</th>
-                    <th>Excluir</th>
-                    <th>Alterar</th>
-                  </tr>
-                </thead>
+              {registros.length === 0 && (
+                <div className="listaVaziaDiv">
+                  <h3>
+                    A sua Lista Negra está vazia. <br />O seu coraçãozinho não
+                    tem guardado rancor de ninguém.
+                    <br/>
+                    <Link to={{pathname:"/adicionarNaLista", state: responseLogado}} >Adicionar na Lista Negra</Link>
+                  </h3>
+                </div>
+              )}
 
-                <tbody>
-                  {registros.map((item) => (
-                    <tr key={item.id}>
-                      <td>
-                       <img src={api.buscarImagem(item.foto)} alt="" height="32"/>
-                      </td>
-                      <td>{item.nome}</td>
-                      <td>{item.motivo}</td>
-                      <td>{new Date(item.inclusao).toLocaleString()}</td>
-                      <td>{item.local}</td>
-                      <td>
-                        <button
-                          className="DeletarConsult btn btn-danger"
-                          onClick={() => deletarClick(item.id)}
-                        >
-                          Deletar
-                        </button>
-                      </td>
-                      <td>
-                        
-                        <Link className="AlterarConsult btn btn-success" to={{
-                          pathname:"/alterar",
-                          state: item
-                        }}>
-                           Alterar
-                        </Link>
-                    
-                      </td>
+              {registros.length !== 0 && (
+                <table className="table table-hover">
+                  <thead className="thead">
+                    <tr>
+                      <th>Foto</th>
+                      <th>Nome</th>
+                      <th>Motivo</th>
+                      <th>Inclusao</th>
+                      <th>Local</th>
+                      <th>Excluir</th>
+                      <th>Alterar</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+
+                  <tbody>
+                    {registros.map((item) => (
+                      <tr key={item.id}>
+                        <td>
+                          <img
+                            src={api.buscarImagem(item.foto)}
+                            alt=""
+                            height="32"
+                          />
+                        </td>
+                        <td>{item.nome}</td>
+                        <td>{item.motivo}</td>
+                        <td>{new Date(item.inclusao).toLocaleString()}</td>
+                        <td>{item.local}</td>
+                        <td>
+                          <button
+                            className="DeletarConsult btn btn-danger"
+                            onClick={() => deletarClick(item.id)}
+                          >
+                            Perdoar
+                          </button>
+                        </td>
+                        <td>
+                          <Link
+                            className="AlterarConsult btn btn-success"
+                            to={{
+                              pathname: "/alterar",
+                              state: item,
+                            }}
+                          >
+                            Alterar
+                          </Link>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              )}
             </div>
 
             <div className="btnConsultar">
@@ -123,7 +143,7 @@ export default function Consultar() {
           </div>
         </div>
 
-        <Footer/>
+        <Footer />
       </>
     );  
 }

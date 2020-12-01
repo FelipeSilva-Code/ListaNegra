@@ -20,6 +20,7 @@ export default class ListaNegraApi{
     console.log(ln);
 
     let formData = new FormData();
+    formData.append('idUsuario', ln.idUsuario);
     formData.append('nome', ln.nome);
     formData.append('motivo', ln.motivo);
     formData.append('local', ln.local);
@@ -40,8 +41,8 @@ export default class ListaNegraApi{
     return urlFoto;
   }
  
-   async consultar(){
-       const resp = await api.get('/listanegra');
+   async consultar(idUsuario){
+       const resp = await api.get(`/listanegra/${idUsuario}`);
        return resp.data;
   
    }

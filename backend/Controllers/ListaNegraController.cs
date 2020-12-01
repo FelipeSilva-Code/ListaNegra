@@ -66,12 +66,12 @@ namespace backend.Controllers
             }
         }
 
-        [HttpGet]
-        public ActionResult<List<Models.Response.ListaNegraResponse>> Listar()
+        [HttpGet("{idUsuario}")]
+        public ActionResult<List<Models.Response.ListaNegraResponse>> Listar(int idUsuario)
         {
             try
             {
-                List<Models.TbListaNegra> tbLista = business.Listar();
+                List<Models.TbListaNegra> tbLista = business.Listar(idUsuario);
 
                 if (tbLista.Count == 0)
                     NotFound("Nenhuma pessoa na lista negra encontrada");

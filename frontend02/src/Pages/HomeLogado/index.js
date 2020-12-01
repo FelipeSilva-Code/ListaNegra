@@ -25,7 +25,7 @@ export default function HomeLogado(props) {
           <div className="containerLogadoMeio">
             <div>
               <h3>
-                <Link className="linkLogado" to="/adicionarNaLista">Adicionar na Lista Negra</Link>
+                <Link className="linkLogado" to={{pathname: "/adicionarNaLista", state: responseLogado}}>Adicionar na Lista Negra</Link>
               </h3>
               <div className="backgroundDoHomeLogado">
                 <img src={AdicionarNaLista} />
@@ -34,7 +34,7 @@ export default function HomeLogado(props) {
 
             <div>
               <h3>
-                <Link className="linkLogado" to="/consultar">Consultar na Lista Negra</Link>
+                <Link className="linkLogado" to={{pathname: "/consultar", state: responseLogado}}>Consultar na Lista Negra</Link>
               </h3>
               <div className="backgroundDoHomeLogado">
                 <img src={Listar} />

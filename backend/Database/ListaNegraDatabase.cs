@@ -16,9 +16,10 @@ namespace backend.Database
                return tbLista;
         }
        
-        public List<Models.TbListaNegra> Listar ()
+        public List<Models.TbListaNegra> Listar (int IdUsuario)
         {
-                List<Models.TbListaNegra> lista = ctx.TbListaNegra.ToList();
+                List<Models.TbListaNegra> lista = ctx.TbListaNegra.Where(x => x.IdUsuario == IdUsuario)
+                                                                  .ToList();
                 return lista;
         }
 

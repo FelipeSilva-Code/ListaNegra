@@ -24,20 +24,24 @@ namespace backend.Business
             if (string.IsNullOrEmpty(tbLista.DsLocal))
                 throw new ArgumentException("O local é obrigatório!");
 
+            if (tbLista.IdUsuario == 0)
+                throw new ArgumentException("Algo errado, tente novamente");   
+
             return db.Inserir(tbLista);
 
         }
 
-        public List<Models.TbListaNegra> Listar()
+        public List<Models.TbListaNegra> Listar(int IdUsuario)
         {
-           return db.Listar();
+            if(IdUsuario == 0)
+                throw new ArgumentException("Algo errado, tente novamente");
+           
+            return db.Listar(IdUsuario);
         }
 
         public void DeletarPessoa(int id)
         {
-            
-           
-          db.DeletarPessoa(id);
+           db.DeletarPessoa(id);
         }
 
         public void Alterar(int id, Models.TbListaNegra tbLista)

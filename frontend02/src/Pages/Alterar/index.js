@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import LoadingBar from 'react-top-loading-bar';
 import 'react-toastify/dist/ReactToastify.css';
 import Menu from  '../../Components/Menu'
+import Footer from "../../Components/Footer"
 
 const api = new ListaNegra();
 
@@ -130,6 +131,8 @@ export default function Alterar (props) {
 
           <ToastContainer />
         </div>
+
+        <Footer/>
       </>
     );
 }

@@ -8,6 +8,7 @@ namespace backend.Models.Request
 {
     public class ListaNegraRequest
     {
+        public int IdUsuario {get; set;}
         public string Nome { get; set; }
         public string Motivo { get; set; }
         public DateTime Inclusao {get; set;}

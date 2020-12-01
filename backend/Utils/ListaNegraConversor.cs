@@ -15,6 +15,7 @@ namespace backend.Utils
             listaNegra.DsMotivo = req.Motivo;
             listaNegra.DtInclusao = req.Inclusao;
             listaNegra.DsLocal = req.Local;
+            listaNegra.IdUsuario = req.IdUsuario;
             return listaNegra;
         }
 
@@ -27,6 +28,7 @@ namespace backend.Utils
             resp.Nome = tbLista.NmPessoa;
             resp.Local = tbLista.DsLocal;
             resp.Foto = tbLista.DsFoto;
+            resp.IdUsuario = tbLista.IdUsuario;
             return resp;
         }
 
