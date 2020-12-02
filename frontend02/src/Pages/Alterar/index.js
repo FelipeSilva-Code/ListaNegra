@@ -18,7 +18,7 @@ export default function Alterar (props) {
      const [inclusao, setInclusao] = useState(props.location.state.inclusao.substr(0, 10));
      const [motivo, setMotivo] = useState(props.location.state.motivo);
      const [local, setLocal] = useState(props.location.state.local);
-     const [foto, setFoto] = useState(props.location.state.foto);
+     const [foto, setFoto] = useState(null);
 
      console.log(foto)
 
@@ -31,11 +31,11 @@ export default function Alterar (props) {
 
          //Se os nome do estado e do req forem iguais não precisa passar os dois
           const request = {
-            nome: nome,
-            motivo: motivo,
-            inclusao: inclusao,
-            local: local,
-            foto: foto,
+            "nome": nome,
+            "motivo": motivo,
+            "inclusao": inclusao,
+            "local": local,
+            "foto": foto,
           };
 
           console.log(request);

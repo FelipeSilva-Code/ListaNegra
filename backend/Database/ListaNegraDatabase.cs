@@ -38,7 +38,9 @@ namespace backend.Database
             listaNegra.DtInclusao = req.DtInclusao;
             listaNegra.DsMotivo = req.DsMotivo;
             listaNegra.DsLocal = req.DsLocal;
+            listaNegra.DsFoto = req.DsFoto;
             ctx.SaveChanges();
         }
+
     }
 }

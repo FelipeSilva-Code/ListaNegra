@@ -49,6 +49,32 @@ namespace backend.Controllers
             }
         }
 
+        [HttpPut("{id}")]
+        public ActionResult<Models.TbListaNegra> Alterar(int id, [FromForm] Models.Request.ListaNegraRequest req)
+        {
+            try
+            {
+                Models.TbListaNegra lista = conversor.ConversorParaModeloTabela(req);
+
+                if( req.Foto != null )
+                {
+                    lista.DsFoto = gerenciadorFoto.GerarNovoNome(req.Foto.FileName);
+                    gerenciadorFoto.SalvarFoto(lista.DsFoto, req.Foto);
+                }
+               
+                business.Alterar(id, lista);
+                return lista;
+
+            }
+            catch (System.Exception ex)
+            {
+
+                return BadRequest(new Models.Response.ErroResponse(
+                    400, ex.Message
+                ));
+            }
+        }
+
         [HttpGet("foto/{nome}")]
         public ActionResult BuscarFoto(string nome)
         {
@@ -94,27 +120,6 @@ namespace backend.Controllers
         public void DeletarPessoa(int id)
         {
             business.DeletarPessoa(id);
-        }
-
-        [HttpPut("{id}")]
-        public ActionResult<Models.TbListaNegra> Alterar(int id, [FromForm]Models.Request.ListaNegraRequest req)
-        {
-            try
-            {
-                Models.TbListaNegra lista = conversor.ConversorParaModeloTabela(req);
-                business.Alterar(id, lista);
-                return lista;
-
-            }
-            catch (System.Exception ex)
-            {
-
-                return BadRequest(new Models.Response.ErroResponse(
-                    400, ex.Message
-                ));
-            }
-
-
         }
 
     }
