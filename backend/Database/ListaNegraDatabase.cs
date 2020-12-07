@@ -42,5 +42,18 @@ namespace backend.Database
             ctx.SaveChanges();
         }
 
+        public Models.TbUsuario AlterarDados(int idUsuario, Models.TbUsuario usuario)
+        {
+            Models.TbUsuario tbUsuario = ctx.TbUsuario.FirstOrDefault( x => x.IdUsuario == idUsuario);
+
+            tbUsuario.DsEmail = usuario.DsEmail;
+            tbUsuario.DsSenha = usuario.DsSenha;
+            tbUsuario.NmUsuario = usuario.NmUsuario;
+
+            ctx.SaveChanges();
+
+            return tbUsuario;
+        }
+
     }
 }

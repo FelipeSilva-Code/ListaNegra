@@ -53,6 +53,7 @@ export default function TelaUsuario (props) {
                      {mostrarSenha == "password" && 
                         <i onClick={showSenha} class="far fa-eye"></i>
                      }
+                     
                      {mostrarSenha == "text" && 
                         <i onClick={showSenha} class="far fa-eye-slash"></i>
                      }

@@ -9,6 +9,7 @@ namespace backend.Business
     public class ListaNegraBusiness
     {
         Database.ListaNegraDatabase db = new Database.ListaNegraDatabase();
+        Business.CadastroUsuarioBusiness cadastroBusiness = new CadastroUsuarioBusiness();
 
         public Models.TbListaNegra Inserir(Models.TbListaNegra tbLista)
         {
@@ -58,6 +59,19 @@ namespace backend.Business
                 throw new ArgumentException("O local é obrigatório!");
 
             db.Alterar(id, tbLista);
+        }
+
+        public Models.TbUsuario AlterarDados(int idUsuario, Models.TbUsuario usuario)
+        {
+            usuario = cadastroBusiness.TirarEspacosDosCampos(usuario);
+
+            cadastroBusiness.ValidarEmail(usuario.DsEmail);
+
+            cadastroBusiness.ValidarSenha(usuario.DsSenha);
+
+            cadastroBusiness.ValidarNome(usuario.NmUsuario);
+
+            return db.AlterarDados(idUsuario, usuario);
         }
 
     }

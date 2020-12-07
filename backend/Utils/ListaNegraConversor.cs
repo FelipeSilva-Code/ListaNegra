@@ -52,5 +52,16 @@ namespace backend.Utils
             tbLista.NmPessoa = resp.Nome;
             return tbLista;
         }
+
+        public Models.TbUsuario ParaTbUsuario (Models.Request.AlteracaoDados request)
+        {
+            Models.TbUsuario usuario = new Models.TbUsuario();
+
+            usuario.DsEmail = request.Email;
+            usuario.DsSenha = request.Senha;
+            usuario.NmUsuario = request.NomeUsuario;
+
+            return usuario;
+        }
     }
 }

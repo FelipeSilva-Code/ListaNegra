@@ -33,9 +33,13 @@ namespace backend.Business
          
             else if (!email.Contains("@gmail.com") && !email.Contains("@hotmail.com") && !email.Contains("@bol.com"))
                 throw new ArgumentException("O e-mail está incorreto.");
-  
-            else if(!dbCadastro.VerSeEmailJaEstaCadastrado(email))
-                throw new ArgumentException("Esse e-mail já foi cadastrado.");     
+
+        }
+
+        public void verSeEmailJaEstaCadastrado (string email)
+        {
+            if(!dbCadastro.VerSeEmailJaEstaCadastrado(email))
+                throw new ArgumentException("Esse e-mail já foi cadastrado.");
         }
 
         public void ValidarSenha (string senha)
@@ -59,6 +63,8 @@ namespace backend.Business
             tbUsuario = this.TirarEspacosDosCampos(tbUsuario);
             
             this.ValidarEmail(tbUsuario.DsEmail);
+
+            this.verSeEmailJaEstaCadastrado(tbUsuario.DsEmail);
 
             this.ValidarSenha(tbUsuario.DsSenha);
 

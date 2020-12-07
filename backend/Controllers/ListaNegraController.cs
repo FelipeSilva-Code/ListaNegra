@@ -14,6 +14,7 @@ namespace backend.Controllers
     {
 
         Utils.ListaNegraConversor conversor = new Utils.ListaNegraConversor();
+        Utils.CadastroeLoginUsuarioConversor conversorTrocaDados = new Utils.CadastroeLoginUsuarioConversor();
         Business.ListaNegraBusiness business = new Business.ListaNegraBusiness();
         Business.GerenciadorFoto gerenciadorFoto = new Business.GerenciadorFoto();
 
@@ -115,11 +116,34 @@ namespace backend.Controllers
 
         }
 
-
+        //Tem q colocar o try catch
         [HttpDelete("{id}")]
         public void DeletarPessoa(int id)
         {
             business.DeletarPessoa(id);
+        }
+
+        [HttpPut("alterarDados")]
+        public ActionResult<Models.Response.LogadoResponse> AlterarDados (Models.Request.AlteracaoDados request)
+        {
+            try
+            {
+                int idUsuario = request.IdUsuario;
+                
+                Models.TbUsuario usuario = conversor.ParaTbUsuario(request);
+
+                usuario = business.AlterarDados(idUsuario, usuario);
+
+                Models.Response.LogadoResponse logadoResponse = conversorTrocaDados.ParaLogadoResponse(usuario);
+
+                return logadoResponse;
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest(new Models.Response.ErroResponse(
+                    400, ex.Message
+                ));
+            }
         }
 
     }
