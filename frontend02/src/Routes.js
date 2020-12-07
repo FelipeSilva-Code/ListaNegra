@@ -7,6 +7,7 @@ import Alterar from './Pages/Alterar';
 import HomeDeslogado from "./Pages/HomeDeslogado"
 import Login from "./Pages/Login"
 import Cadastrar from './Pages/Cadastrar';
+import TelaUsuario from './Pages/TelaUsuario';
 
 export default function Routes () {
     return (
@@ -19,6 +20,7 @@ export default function Routes () {
           <Route path="/alterar" exact component={Alterar}></Route>
           <Route path="/logar" exact component={Login}></Route>
           <Route path="/cadastrar" exact component={Cadastrar}/>
+          <Route path="/usuario" exact component={TelaUsuario}/>
         </Switch>
       </BrowserRouter>
     );

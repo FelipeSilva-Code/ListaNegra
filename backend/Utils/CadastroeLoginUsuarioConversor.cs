@@ -26,6 +26,8 @@ namespace backend.Utils
 
             logadoResponse.IdUsuario = tbUsuario.IdUsuario;
             logadoResponse.NomeUsuario = tbUsuario.NmUsuario;
+            logadoResponse.Email = tbUsuario.DsEmail;
+            logadoResponse.Senha = tbUsuario.DsSenha;
 
             return logadoResponse;
         }

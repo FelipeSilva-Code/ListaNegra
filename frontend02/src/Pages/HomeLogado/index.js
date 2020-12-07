@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import Menu from '../../Components/Menu';
+import Menu from '../../Components/MenuLogado';
 import Footer from "../../Components/Footer"
 import AdicionarNaLista from "../../assets/images/addNaLista.svg"
 import Listar from "../../assets/images/ListarNaLista.svg";
@@ -13,7 +13,10 @@ export default function HomeLogado(props) {
 
   return (
     <>
-      <Menu />
+      <Menu 
+       estado={responseLogado}
+      /> 
+
       <div className="ContainerHomeLogado">
         <div className="HomeLogadoDiv">
           <h2 className="tituloLogado">

@@ -4,7 +4,7 @@ import ListaNegra from '../../services/ListaNegraApi';
 import { ToastContainer, toast } from 'react-toastify';
 import LoadingBar from 'react-top-loading-bar';
 import 'react-toastify/dist/ReactToastify.css';
-import Menu from  '../../Components/Menu'
+import Menu from  '../../Components/MenuDeslogado'
 import Footer from "../../Components/Footer"
 
 const api = new ListaNegra();
@@ -13,6 +13,7 @@ export default function Alterar (props) {
 
     const loadingBar = useRef(null);
 
+     
      const [id] = useState(props.location.state.id); //codigo que importa o estado da outra pagina
      const [nome, setNome] = useState(props.location.state.nome);
      const [inclusao, setInclusao] = useState(props.location.state.inclusao.substr(0, 10));
@@ -132,7 +133,7 @@ export default function Alterar (props) {
           <ToastContainer />
         </div>
 
-        <Footer/>
+        <Footer />
       </>
     );
 }

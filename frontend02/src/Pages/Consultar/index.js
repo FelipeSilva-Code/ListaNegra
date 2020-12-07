@@ -4,7 +4,7 @@ import LoadingBar from 'react-top-loading-bar';
 import { ToastContainer, toast } from 'react-toastify';
 import './index.css'
 import { Link } from 'react-router-dom';
-import Menu from '../../Components/Menu';
+import Menu from '../../Components/MenuLogado';
 import Footer from "../../Components/Footer"
 
 
@@ -60,7 +60,7 @@ export default function Consultar( props ) {
     
     return (
       <>
-        <Menu />
+        <Menu  estado={responseLogado}/>
         <div className="containerConsultar">
           <div className="containerCentroConsultar">
             <LoadingBar height={4} color="#f11946" ref={loadingBar} />

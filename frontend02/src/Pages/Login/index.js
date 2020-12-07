@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "./styles.css";
-import Menu from "../../Components/Menu"
+import Menu from "../../Components/MenuDeslogado"
 import Footer from "../../Components/Footer"
 import { Link, useHistory } from "react-router-dom";
 import ListaNegra from "../../services/ListaNegraApi";

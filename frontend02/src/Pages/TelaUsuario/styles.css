@@ -1,0 +1,52 @@
+.fa-user-circle {
+    font-size: 43px;
+    cursor: pointer;
+}
+
+
+.containerTelaUsuario{
+    height: 78vh;
+    width: 100vw;
+    background-color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contMeioUsario{
+    height: 70vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    box-shadow: 1px 1px 20px   #c7c4c4;
+}
+
+.usuarioInput{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin-top: -30px;
+    
+}
+
+.usuarioInput > input {
+    width: 100%;
+}
+
+.divBtnUsuario{
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+}
+
+.fa-eye-slash, .fa-eye{
+    font-size: 25px;
+    margin-right: -40px;
+    margin-left: 10px;
+    margin-bottom: -37px;
+    cursor: pointer;
+}

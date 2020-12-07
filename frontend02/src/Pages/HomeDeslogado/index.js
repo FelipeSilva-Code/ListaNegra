@@ -1,5 +1,5 @@
 import React from "react";
-import Menu from "../../Components/Menu"
+import Menu from "../../Components/MenuDeslogado"
 import Footer from "../../Components/Footer"
 import ImageLogin from "../../assets/images/undraw_Login_re_4vu2.svg";
 import AddUser from "../../assets/images/addUser.svg";
