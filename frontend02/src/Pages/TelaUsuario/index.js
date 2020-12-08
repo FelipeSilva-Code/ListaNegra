@@ -3,13 +3,19 @@ import { useHistory } from "react-router-dom";
 import Footer from "../../Components/Footer";
 import MenuDeslogado from "../../Components/MenuDeslogado";
 import "./styles.css";
+import ListaNegraApi from "../../services/ListaNegraApi";
+import { toast, ToastContainer } from "react-toastify";
+
+const api = new ListaNegraApi();
 
 export default function TelaUsuario (props) {
 
+    const [idUsuario, setIdUsario] = useState(props.location.state.idUsuario);
     const [nome, setNome] = useState(props.location.state.nomeUsuario);
     const [email, setEmail] = useState(props.location.state.email);
     const [senha, setSenha] = useState(props.location.state.senha);
     const [mostrarSenha, setMostrarSenha] = useState("password");
+    const [responseLogado, setResponseLogado] = useState(props.location.state);
 
     const showSenha = () => {
         if(mostrarSenha == "password")
@@ -23,8 +29,32 @@ export default function TelaUsuario (props) {
     const history = useHistory();
 
     const voltarClick = () => {
-        history.goBack();
-        console.log("pq n foi?")
+        history.push({pathname: "/homeLogado", state: responseLogado});
+    }
+
+    const alterarDados = async () => {
+        try {
+              
+            const request = {
+                "IdUsuario": idUsuario,
+                "NomeUsuario": nome,
+                "Email": email,
+                "Senha": senha,
+              };
+
+              const resp = await api.alterarDadosUsuario(request);
+
+              toast.success("Dados alterados com sucesso!");
+
+              setResponseLogado(resp);
+
+              console.log(resp);
+
+            
+        } catch (e) {
+            
+            toast.error(e.response.data.erro);
+        }
     }
 
     console.log(props);
@@ -32,6 +62,7 @@ export default function TelaUsuario (props) {
     return(
         <>
             <MenuDeslogado/>
+            <ToastContainer/>
             
             <div className="containerTelaUsuario">
 
@@ -53,15 +84,15 @@ export default function TelaUsuario (props) {
                      {mostrarSenha == "password" && 
                         <i onClick={showSenha} class="far fa-eye"></i>
                      }
-                     
+
                      {mostrarSenha == "text" && 
                         <i onClick={showSenha} class="far fa-eye-slash"></i>
                      }
                   </div>
 
                   <div className="divBtnUsuario">
-                      <button onClick={voltarClick} className="btn btn-danger">Cancelar</button>
-                      <button className="btn btn-success">Alterar</button>
+                      <button onClick={voltarClick} className="btn btn-danger">Voltar</button>
+                      <button onClick={alterarDados} className="btn btn-success">Alterar</button>
                   </div>
 
                 </div>  

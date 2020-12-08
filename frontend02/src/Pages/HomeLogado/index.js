@@ -10,6 +10,8 @@ export default function HomeLogado(props) {
 
   const [responseLogado, setResponseLogado] = useState(props.location.state);
 
+  console.log(responseLogado);
+
 
   return (
     <>

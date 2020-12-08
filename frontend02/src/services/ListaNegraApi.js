@@ -66,6 +66,11 @@ export default class ListaNegraApi{
 
    }
 
+   async alterarDadosUsuario(request){
+     const resp = api.put("/listaNegra/alterarDados", request);
+     return (await resp).data;
+   }
+
 
 
 }
