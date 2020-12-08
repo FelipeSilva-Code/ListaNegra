@@ -5,7 +5,7 @@ Nesse projeto a ideia é permitir que os usuários coloquem na sua lista pessoal
 
 O Projeto Lista Negra foi feito com o ReactJs no Front-End e com .Net Core no Back-End.
 
-Nesse projeto é possivel fazer:
+Nesse projeto é possivel:
  - Cadastrar-se
  - Logar
  - Adicionar a lista negra
