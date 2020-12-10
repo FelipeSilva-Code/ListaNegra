@@ -6,6 +6,7 @@ import './index.css'
 import { Link } from 'react-router-dom';
 import Menu from '../../Components/MenuLogado';
 import Footer from "../../Components/Footer"
+import Loading from "../../Components/Loading";
 
 
 
@@ -14,22 +15,22 @@ const api = new ListaNegraApi();
 export default function Consultar( props ) {
 
   const [responseLogado, setResponseLogado] = useState(props.location.state);
-    
-  const loadingBar = useRef(null);
   
   const [registros, setRegistros] = useState([]);
 
+  const [mostrarLoading, setMostrarLoading] = useState(false);
+
   
   const consultarClick = async () => {
-   
-  
-    loadingBar.current.continuousStart();
+    
+    setMostrarLoading(true);
 
     const lns = await api.consultar(responseLogado.idUsuario); 
     
-     setRegistros([...lns])
+    setRegistros([...lns])
 
-      loadingBar.current.complete();
+    setMostrarLoading(false);
+
   }
 
   const deletarClick = async (id) => {
@@ -38,17 +39,21 @@ export default function Consultar( props ) {
     var r = window.confirm("Você irá excluir uma pessoa da lista negra!");
 
     if (r === true) {
-      loadingBar.current.continuousStart();
+      
+      setMostrarLoading(true);
 
       await api.deletar(id);
 
       toast.dark("Excluido com sucesso!!!")
 
+      setMostrarLoading(true);
+
       consultarClick();
 
-      loadingBar.current.complete();
     }
     else {
+
+      setMostrarLoading(false);
       return "Você pressionou Cancelar!";
     }
 
@@ -60,11 +65,10 @@ export default function Consultar( props ) {
     
     return (
       <>
-        <Menu  estado={responseLogado}/>
+        {mostrarLoading === true && <Loading />}
+        <Menu estado={responseLogado} />
         <div className="containerConsultar">
           <div className="containerCentroConsultar">
-            <LoadingBar height={4} color="#f11946" ref={loadingBar} />
-
             <h1 className="tituloConsultar">Sua Lista Negra</h1>
 
             <div className="tableConsultar">
@@ -73,8 +77,15 @@ export default function Consultar( props ) {
                   <h3>
                     A sua Lista Negra está vazia. <br />O seu coraçãozinho não
                     tem guardado rancor de ninguém.
-                    <br/>
-                    <Link to={{pathname:"/adicionarNaLista", state: responseLogado}} >Adicionar na Lista Negra</Link>
+                    <br />
+                    <Link
+                      to={{
+                        pathname: "/adicionarNaLista",
+                        state: responseLogado,
+                      }}
+                    >
+                      Adicionar na Lista Negra
+                    </Link>
                   </h3>
                 </div>
               )}

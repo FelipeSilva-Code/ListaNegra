@@ -2,17 +2,14 @@ import React, { useState, useRef } from 'react';
 import './index.css'
 import ListaNegra from '../../services/ListaNegraApi';
 import { ToastContainer, toast } from 'react-toastify';
-import LoadingBar from 'react-top-loading-bar';
 import 'react-toastify/dist/ReactToastify.css';
 import Menu from  '../../Components/MenuDeslogado'
 import Footer from "../../Components/Footer"
+import Loading from "../../Components/Loading";
 
 const api = new ListaNegra();
 
 export default function Alterar (props) {
-
-    const loadingBar = useRef(null);
-
      
      const [id] = useState(props.location.state.id); //codigo que importa o estado da outra pagina
      const [nome, setNome] = useState(props.location.state.nome);
@@ -20,15 +17,14 @@ export default function Alterar (props) {
      const [motivo, setMotivo] = useState(props.location.state.motivo);
      const [local, setLocal] = useState(props.location.state.local);
      const [foto, setFoto] = useState(null);
+     const [mostrarLoading, setMostrarLoading] = useState(false);
 
-     console.log(foto)
-
-     
 
      const alterarClick = async () => {
 
        try{
-         loadingBar.current.continuousStart();
+
+          setMostrarLoading(true);
 
          //Se os nome do estado e do req forem iguais não precisa passar os dois
           const request = {
@@ -39,16 +35,17 @@ export default function Alterar (props) {
             "foto": foto,
           };
 
-          console.log(request);
 
         await api.alterar(id, request );
 
-        loadingBar.current.complete();
+        setMostrarLoading(false);
        
         toast.dark("Alterado com sucesso!!!")
      
       }catch(e){
-        console.log(e.response.data)
+
+        setMostrarLoading(false);
+       
         toast.error(e.response.data.erro)
       }
 
@@ -57,11 +54,9 @@ export default function Alterar (props) {
 
     return (
       <>
-        <LoadingBar height={4} color="#f11946" ref={loadingBar} />
+        {mostrarLoading === true && <Loading />}
         <Menu />
         <div className="containerAlterar">
-          <LoadingBar height={4} color="#f11946" ref={loadingBar} />
-
           <div className="containerCentralAlterar">
             <h1>Alterar Informações</h1>
 

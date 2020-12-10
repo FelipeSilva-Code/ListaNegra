@@ -5,6 +5,7 @@ import MenuDeslogado from "../../Components/MenuDeslogado";
 import "./styles.css";
 import ListaNegraApi from "../../services/ListaNegraApi";
 import { toast, ToastContainer } from "react-toastify";
+import Loading from "../../Components/Loading";
 
 const api = new ListaNegraApi();
 
@@ -16,6 +17,7 @@ export default function TelaUsuario (props) {
     const [senha, setSenha] = useState(props.location.state.senha);
     const [mostrarSenha, setMostrarSenha] = useState("password");
     const [responseLogado, setResponseLogado] = useState(props.location.state);
+    const [mostrarLoading, setMostrarLoading] = useState(false);
 
     const showSenha = () => {
         if(mostrarSenha == "password")
@@ -35,71 +37,99 @@ export default function TelaUsuario (props) {
     const alterarDados = async () => {
         try {
               
-            const request = {
-                "IdUsuario": idUsuario,
-                "NomeUsuario": nome,
-                "Email": email,
-                "Senha": senha,
-              };
+        setMostrarLoading(true);
 
-              const resp = await api.alterarDadosUsuario(request);
+        const request = {
+        "IdUsuario": idUsuario,
+        "NomeUsuario": nome,
+        "Email": email,
+        "Senha": senha,
+        };
 
-              toast.success("Dados alterados com sucesso!");
+        const resp = await api.alterarDadosUsuario(request);
 
-              setResponseLogado(resp);
+        toast.success("Dados alterados com sucesso!");
 
-              console.log(resp);
+        setResponseLogado(resp);
 
+        setMostrarLoading(false)
             
-        } catch (e) {
+        } catch(e) {
             
-            toast.error(e.response.data.erro);
+        setMostrarLoading(false);
+        toast.error(e.response.data.erro);
+
         }
     }
 
     console.log(props);
 
-    return(
-        <>
-            <MenuDeslogado/>
-            <ToastContainer/>
-            
-            <div className="containerTelaUsuario">
+    return (
+      <>
+        {mostrarLoading === true && <Loading />}
+        <MenuDeslogado />
+        <ToastContainer />
 
-                <div className="contMeioUsario">
+        <div className="containerTelaUsuario">
+          <div className="contMeioUsario">
+            <h3>Seus Dados</h3>
 
-                 <h3>Seus Dados</h3>     
-                 
-                 <div className="usuarioInput">
-                    <label className="loginInput">Nome:<input value={nome} onChange={e => setNome(e.target.value)}  className="form-control" type="text" /></label>
-                  </div>
-
-                  <div className="usuarioInput">
-                     <label className="loginInput">E-mail:<input value={email} onChange={e => setEmail(e.target.value)}  className="form-control" type="text" /></label>
-                  </div>
-
-                  <div className="usuarioInput">
-                     <label className="loginInput">Senha:<input value={senha} onChange={e => setSenha(e.target.value)} type={mostrarSenha} className="form-control" /></label>
-                     
-                     {mostrarSenha == "password" && 
-                        <i onClick={showSenha} class="far fa-eye"></i>
-                     }
-
-                     {mostrarSenha == "text" && 
-                        <i onClick={showSenha} class="far fa-eye-slash"></i>
-                     }
-                  </div>
-
-                  <div className="divBtnUsuario">
-                      <button onClick={voltarClick} className="btn btn-danger">Voltar</button>
-                      <button onClick={alterarDados} className="btn btn-success">Alterar</button>
-                  </div>
-
-                </div>  
-
+            <div className="usuarioInput">
+              <label className="loginInput">
+                Nome:
+                <input
+                  value={nome}
+                  onChange={(e) => setNome(e.target.value)}
+                  className="form-control"
+                  type="text"
+                />
+              </label>
             </div>
 
-            <Footer/>
-        </>
-    )
+            <div className="usuarioInput">
+              <label className="loginInput">
+                E-mail:
+                <input
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="form-control"
+                  type="text"
+                />
+              </label>
+            </div>
+
+            <div className="usuarioInput">
+              <label className="loginInput">
+                Senha:
+                <input
+                  value={senha}
+                  onChange={(e) => setSenha(e.target.value)}
+                  type={mostrarSenha}
+                  className="form-control"
+                />
+              </label>
+
+              {mostrarSenha == "password" && (
+                <i onClick={showSenha} class="far fa-eye"></i>
+              )}
+
+              {mostrarSenha == "text" && (
+                <i onClick={showSenha} class="far fa-eye-slash"></i>
+              )}
+            </div>
+
+            <div className="divBtnUsuario">
+              <button onClick={voltarClick} className="btn btn-danger">
+                Voltar
+              </button>
+              <button onClick={alterarDados} className="btn btn-success">
+                Alterar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <Footer />
+      </>
+    );
 }

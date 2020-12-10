@@ -5,6 +5,7 @@ import Footer from "../../Components/Footer"
 import { Link, useHistory } from "react-router-dom";
 import ListaNegra from "../../services/ListaNegraApi";
 import { ToastContainer, toast } from "react-toastify";
+import Loading from "../../Components/Loading";
 
 const api = new ListaNegra();
 
@@ -12,6 +13,7 @@ export default function Login () {
 
   const [email, setEmail] = useState();
   const [senha, setSenha] = useState();
+  const [mostrarLoading, setMostrarLoading] = useState(false);
 
 
   const history = useHistory();
@@ -19,6 +21,8 @@ export default function Login () {
   const Logar = async () => {
 
     try {
+
+        setMostrarLoading(true);
 
         const request = {
           "Email": email,
@@ -29,17 +33,16 @@ export default function Login () {
 
         resp = resp.data;
 
-        
+        setMostrarLoading(false);
        
         history.push({
           pathname:"homeLogado",
           state:resp
         });
-
   
-      
     } catch (e) {
 
+        setMostrarLoading(false);
         toast.error(e.response.data.erro)
     }
 
@@ -47,6 +50,9 @@ export default function Login () {
     return (
       <>
         <ToastContainer/>
+        {mostrarLoading === true && 
+          <Loading/>
+        }
         <Menu />
 
         <div className="ContainerTotalLogin">

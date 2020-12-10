@@ -5,6 +5,7 @@ import  './index.css';
 import 'react-toastify/dist/ReactToastify.css'
 import Menu from "../../Components/MenuLogado"
 import Footer from "../../Components/Footer"
+import Loading from "../../Components/Loading";
 
 const api = new ListaNegra()
 
@@ -15,10 +16,14 @@ export default function Cadastrar(props) {
     const [inclusao, setInclusao] = useState("");
     const [local, setLocal] = useState("Outro");
     const [foto, setFoto] = useState("user.png");
+    const [mostrarLoading, setMostrarLoading] = useState(false);
 
     const salvarClick = async () => {
       
       try {
+
+           setMostrarLoading(true);
+
            await api.cadastrar({
                 "idUsuario": responseLogado.idUsuario,
                 "nome": nome,
@@ -31,11 +36,13 @@ export default function Cadastrar(props) {
             setNome("");
             setMotivo("");
             setLocal("dd/mm/aaaa");
-            setInclusao("")          
+            setInclusao("")     
+            
+            setMostrarLoading(false);
 
-          toast.dark("Adicionado na lista negra!!!")
+            toast.dark("Adicionado na lista negra!!!")
       } catch(e) {
-
+        setMostrarLoading(false);
         toast.error(e.response.data.erro); 
       }
 
@@ -43,9 +50,8 @@ export default function Cadastrar(props) {
   
     return (
       <>
-        <Menu 
-        estado={responseLogado}
-        />
+        {mostrarLoading === true && <Loading />}
+        <Menu estado={responseLogado} />
         <div className="containerCadastrar">
           <div className="containerCentroCadastrar">
             <div>
