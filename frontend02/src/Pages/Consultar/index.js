@@ -94,7 +94,6 @@ export default function Consultar( props ) {
                 <table className="table table-hover">
                   <thead className="thead">
                     <tr>
-                      <th>Foto</th>
                       <th>Nome</th>
                       <th>Motivo</th>
                       <th>Inclusao</th>
@@ -107,13 +106,6 @@ export default function Consultar( props ) {
                   <tbody>
                     {registros.map((item) => (
                       <tr key={item.id}>
-                        <td>
-                          <img
-                            src={api.buscarImagem(item.foto)}
-                            alt=""
-                            height="32"
-                          />
-                        </td>
                         <td>{item.nome}</td>
                         <td>{item.motivo}</td>
                         <td>{new Date(item.inclusao).toLocaleString().substring(0, 10)}</td>

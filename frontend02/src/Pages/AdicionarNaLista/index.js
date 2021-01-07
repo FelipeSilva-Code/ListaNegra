@@ -108,18 +108,7 @@ export default function Cadastrar(props) {
                 <option value="Internet">Internet</option>
               </select>
             </div>
-
-            
-             <div className="inputsCadastrar">
-              <label>Foto:&nbsp;&nbsp;&nbsp; &nbsp;</label>
-              <input
-                onChange={(e) => setFoto(e.target.files[0])}
-                className="inputFile form-control-file"
-                type="file"
-              />
-            </div>
                           
-
             <div className="inputFile">
               <button className="btn btn-primary" onClick={salvarClick}>
                 Adicionar

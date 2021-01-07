@@ -110,15 +110,6 @@ export default function Alterar (props) {
             </div>
 
             <div className="inputsAlterar">
-              <label>Foto: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-              <input
-                onChange={(e) => setFoto(e.target.files[0])}
-                className="form-control-file"
-                type="file"
-              ></input>
-            </div>
-
-            <div className="inputsAlterar">
               <button onClick={alterarClick} className="btn btn-success">
                 Alterar
               </button>
