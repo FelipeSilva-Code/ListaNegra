@@ -34,4 +34,14 @@
     .divHeader {
         height: 9vh;
     }
+    .menuLogado{
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .imgLogoLogado{
+        height: 50%;
+    }
+    .fa-user-circle{
+        font-size: 30px;
+    }
 }

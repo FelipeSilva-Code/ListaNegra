@@ -99,7 +99,7 @@ export default function TelaUsuario (props) {
             </div>
 
             <div className="usuarioInput">
-              <label className="loginInput">
+              <label className="loginInput senhaLoginInput">
                 Senha:
                 <input
                   value={senha}
@@ -120,7 +120,7 @@ export default function TelaUsuario (props) {
 
             <div className="divBtnUsuario">
               <button onClick={voltarClick} className="btn btn-danger">
-                Voltar
+                &nbsp; Voltar &nbsp;
               </button>
               <button onClick={alterarDados} className="btn btn-success">
                 Alterar

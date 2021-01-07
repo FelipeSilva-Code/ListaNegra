@@ -39,7 +39,7 @@
 
 .divBtnUsuario{
     display: flex;
-    width: 60%;
+    width: 80%;
     justify-content: space-between;
 }
 
@@ -49,4 +49,23 @@
     margin-left: 10px;
     margin-bottom: -37px;
     cursor: pointer;
+}
+
+@media(max-width:763px) {
+   .containerTelaUsuario{
+       height: 82vh;
+   }
+
+   .contMeioUsario{
+       width: 90%;
+   }
+
+   .senhaLoginInput{
+       width: 80%;
+       margin-left: -20%;
+   }
+
+   .fa-eye, .fa-eye-slash{
+       margin-bottom: -4px;
+   }
 }
