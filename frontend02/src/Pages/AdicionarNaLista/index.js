@@ -109,7 +109,7 @@ export default function Cadastrar(props) {
               </select>
             </div>
                           
-            <div className="inputFile">
+            <div className="divBtnAdicionar">
               <button className="btn btn-primary" onClick={salvarClick}>
                 Adicionar
               </button>
