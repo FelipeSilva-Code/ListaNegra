@@ -22,7 +22,9 @@ namespace backend.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("server=localhost;user id=root;password=1234;database=lndb", x => x.ServerVersion("8.0.19-mysql"));
+                //("server=localhost;user id=root;password=1234;database=lndb;
+                
+                optionsBuilder.UseMySql("server=remotemysql.com;user id=IISmBx8k7V;password=orZEPQowxA;database=IISmBx8k7V", x => x.ServerVersion("8.0.19-mysql"));
             }
         }
 

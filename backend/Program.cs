@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using System.Runtime;
 
 namespace backend
 {
@@ -16,11 +17,19 @@ namespace backend
             CreateHostBuilder(args).Build().Run();
         }
 
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
+        public static IHostBuilder CreateHostBuilder(string[] args) 
+        {
+            string port = Environment.GetEnvironmentVariable("PORT");
+            return Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    #if DEBUG
+                        webBuilder.UseStartup<Startup>();
+                    #else
+                        webBuilder.UseStartup<Startup>()
+                                  .UseUrls("http://*:" + port);
+                    #endif
                 });
+        }
     }
 }
