@@ -109,7 +109,8 @@ export default function Cadastrar(props) {
               </select>
             </div>
 
-            <div className="inputsCadastrar">
+            
+             <div className="inputsCadastrar">
               <label>Foto:&nbsp;&nbsp;&nbsp; &nbsp;</label>
               <input
                 onChange={(e) => setFoto(e.target.files[0])}
@@ -117,6 +118,7 @@ export default function Cadastrar(props) {
                 type="file"
               />
             </div>
+                          
 
             <div className="inputFile">
               <button className="btn btn-primary" onClick={salvarClick}>

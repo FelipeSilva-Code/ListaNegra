@@ -74,7 +74,7 @@ export default function Consultar( props ) {
             <div className="tableConsultar">
               {registros.length === 0 && (
                 <div className="listaVaziaDiv">
-                  <h3>
+                  <h3 className="h3ListaVazia">
                     A sua Lista Negra está vazia. <br />O seu coraçãozinho não
                     tem guardado rancor de ninguém.
                     <br />
@@ -116,7 +116,7 @@ export default function Consultar( props ) {
                         </td>
                         <td>{item.nome}</td>
                         <td>{item.motivo}</td>
-                        <td>{new Date(item.inclusao).toLocaleString()}</td>
+                        <td>{new Date(item.inclusao).toLocaleString().substring(0, 10)}</td>
                         <td>{item.local}</td>
                         <td>
                           <button

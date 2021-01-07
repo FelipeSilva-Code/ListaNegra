@@ -116,11 +116,20 @@ namespace backend.Controllers
 
         }
 
-        //Tem q colocar o try catch
+        
         [HttpDelete("{id}")]
         public void DeletarPessoa(int id)
         {
-            business.DeletarPessoa(id);
+            try
+            {
+                business.DeletarPessoa(id);
+            }
+            catch (System.Exception ex)
+            {
+                return BadRequest (new Models.ErroResponse(
+                    400, ex.Message
+                ));
+            }
         }
 
         [HttpPut("alterarDados")]

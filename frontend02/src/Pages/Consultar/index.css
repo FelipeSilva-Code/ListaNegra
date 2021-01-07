@@ -85,7 +85,19 @@ font-size: 12px;
 
     .table-hover{
         width: 90vw;
-        font-size: 0.6rem;
+        font-size: 0.8rem;
     }
+
+    .h3ListaVazia{
+
+        font-size: 1rem;
+    }
+
+    td > button,  .AlterarConsult{
+        width: 80px;
+        height: 38px;
+        font-size: 90px;
+    }
+
 }
 

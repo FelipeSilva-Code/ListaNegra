@@ -40,3 +40,23 @@
     width: 100px;
     font-size: 1rem;
 }
+
+@media(max-width:760px){
+    .containerAlterar{
+        height: 82vh;
+    }
+    .containerCentralAlterar{
+        width: 90%;
+        height: 70vh;
+    }
+
+    .containerCentralAlterar > h1 {
+        font-size: 1.5rem;
+    }
+
+    .inputsAlterar > input, .inputsAlterar > select {
+    width: 60%;
+    height: 110%;
+    display: inline-flex;
+}
+}
