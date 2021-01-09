@@ -8,6 +8,10 @@ import HomeDeslogado from "./Pages/HomeDeslogado"
 import Login from "./Pages/Login"
 import Cadastrar from './Pages/Cadastrar';
 import TelaUsuario from './Pages/TelaUsuario';
+import ProcurarConta from './Pages/ProcurarConta';
+import EnviarCodigo from './Pages/EnviarCodigo';
+import InserirCodigo from './Pages/InserirCodigo';
+import NovaSenha from './Pages/NovaSenha';
 
 export default function Routes () {
     return (
@@ -21,6 +25,10 @@ export default function Routes () {
           <Route path="/logar" exact component={Login}></Route>
           <Route path="/cadastrar" exact component={Cadastrar}/>
           <Route path="/usuario" exact component={TelaUsuario}/>
+          <Route path="/procurarConta" exact component={ProcurarConta} />
+          <Route path="/enviarCodigo" exact component={EnviarCodigo} />
+          <Route path="/inserirCodigo" exact component={InserirCodigo} />
+          <Route path="/novaSenha" exact component={NovaSenha} />
         </Switch>
       </BrowserRouter>
     );

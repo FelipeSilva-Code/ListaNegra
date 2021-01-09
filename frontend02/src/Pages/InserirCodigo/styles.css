@@ -1,0 +1,26 @@
+.containerInserirCodigo{
+    min-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: whitesmoke;
+    justify-content: center; 
+}
+
+@media(max-width:760px){
+
+   .containerInserirCodigo{
+       min-height: 82vh;
+   }
+
+   .inputInserirCodigo{
+       width: 100%;
+   }
+   .inputInserirCodigo > label {
+       width: 100%;
+   }
+
+   .inputInserirCodigo > label > input {
+       width: 100%;
+   }
+}

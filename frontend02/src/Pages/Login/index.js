@@ -77,7 +77,12 @@ export default function Login () {
 
             <div className="irParaTelaDeCadastrar">
               <p>
-                Ainda não tem uma conta? <br />
+                <Link className="linkToCad" to="/procurarConta">
+                  Esqueceu a Senha
+                </Link>
+                <br/>
+                ou
+                <br/>
                 <Link className="linkToCad" to="/cadastrar">
                   Cadastrar-se
                 </Link>

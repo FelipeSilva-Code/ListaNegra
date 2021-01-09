@@ -1,0 +1,25 @@
+.esqueceuSenhaContainer{
+    height: 50vh;
+    box-shadow: 1px 1px 20px   #c7c4c4;
+    width: 36%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    color: black;
+    justify-content: space-around;
+    background-color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+@media(max-width:760px){
+
+    .esqueceuSenhaContainer{
+        width: 90%;
+        height: 50vh;
+    }
+    
+}

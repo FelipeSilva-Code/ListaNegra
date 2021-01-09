@@ -1,0 +1,30 @@
+.containerNovaSenha{
+    min-height: 78vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: whitesmoke;
+    justify-content: center; 
+}
+
+.divInputsNovaSenha{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+@media(max-width:760px){
+
+    .containerNovaSenha{
+        height: 82vh;
+    }
+
+    .divInputsNovaSenha {
+        width: 100%;
+    }
+
+    .divInputsNovaSenha > label > input{
+        width: 100%;
+    }
+    
+}
