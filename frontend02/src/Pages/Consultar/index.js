@@ -20,16 +20,28 @@ export default function Consultar( props ) {
 
   const [mostrarLoading, setMostrarLoading] = useState(false);
 
+  const [mostrarSeEstiverVazio, setMostrarSeEstiverVazio] = useState(false);
+
   
   const consultarClick = async () => {
-    
-    setMostrarLoading(true);
 
-    const lns = await api.consultar(responseLogado.idUsuario); 
-    
-    setRegistros([...lns])
+    try {
+      
+       setMostrarLoading(true);
 
-    setMostrarLoading(false);
+       const lns = await api.consultar(responseLogado.idUsuario);
+
+       setRegistros([...lns]);
+
+       setMostrarLoading(false);
+
+       if(lns.length === 0)
+        setMostrarSeEstiverVazio(true);
+
+    } catch (e) {
+        setMostrarSeEstiverVazio(true);
+        toast.error(e.response.data.erro);
+    }
 
   }
 
@@ -53,8 +65,9 @@ export default function Consultar( props ) {
     }
     else {
 
-      setMostrarLoading(false);
+      setMostrarLoading(true);
       return "Você pressionou Cancelar!";
+   
     }
 
   }
@@ -72,7 +85,7 @@ export default function Consultar( props ) {
             <h1 className="tituloConsultar">Sua Lista Negra</h1>
 
             <div className="tableConsultar">
-              {registros.length === 0 && (
+              {mostrarSeEstiverVazio === true && (
                 <div className="listaVaziaDiv">
                   <h3 className="h3ListaVazia">
                     A sua Lista Negra está vazia. <br />O seu coraçãozinho não
