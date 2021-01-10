@@ -9,7 +9,7 @@ namespace backend.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class LoginUsuario : ControllerBase
+    public class LoginUsuarioController : ControllerBase
     {
         Business.LoginUsuarioBusiness business = new Business.LoginUsuarioBusiness();
         Utils.CadastroeLoginUsuarioConversor conversor = new Utils.CadastroeLoginUsuarioConversor();

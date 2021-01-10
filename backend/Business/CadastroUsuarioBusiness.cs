@@ -10,9 +10,9 @@ namespace backend.Business
     public class CadastroUsuarioBusiness
     {
         Database.CadastroUsuarioDatabase dbCadastro = new Database.CadastroUsuarioDatabase();
-        public void VerSeSenhasSaoIguais(Models.Request.CadastroRequest cadastroRequest)
+        public void VerSeSenhasSaoIguais(string senha1, string senha2)
         {
-            if(cadastroRequest.Senha1 != cadastroRequest.Senha2)
+            if(senha1 != senha2)
                 throw new ArgumentException("As senhas são diferentes.");
 
         }

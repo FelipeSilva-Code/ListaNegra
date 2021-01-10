@@ -118,15 +118,17 @@ namespace backend.Controllers
 
         
         [HttpDelete("{id}")]
-        public void DeletarPessoa(int id)
+        public ActionResult<string> DeletarPessoa(int id)
         {
             try
             {
                 business.DeletarPessoa(id);
+                return "Deletado com sucesso.";
+
             }
             catch (System.Exception ex)
             {
-                return BadRequest (new Models.ErroResponse(
+                return BadRequest(new Models.Response.ErroResponse(
                     400, ex.Message
                 ));
             }

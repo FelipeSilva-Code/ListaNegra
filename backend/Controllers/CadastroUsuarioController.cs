@@ -10,7 +10,7 @@ namespace backend.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CadastroUsuario : ControllerBase
+    public class CadastroUsuarioController : ControllerBase
     {
         Business.CadastroUsuarioBusiness business = new Business.CadastroUsuarioBusiness();
         Utils.CadastroeLoginUsuarioConversor conversor = new Utils.CadastroeLoginUsuarioConversor();
@@ -21,7 +21,7 @@ namespace backend.Controllers
         {
             try
             {
-                business.VerSeSenhasSaoIguais(cadastroRequest);
+                business.VerSeSenhasSaoIguais(cadastroRequest.Senha1, cadastroRequest.Senha2);
 
                 Models.TbUsuario tbUsuario = conversor.ParaTbUsario(cadastroRequest);
 
