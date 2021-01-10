@@ -11,6 +11,8 @@ using Microsoft.Extensions.Logging;
 
 namespace backend.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class EsqueceuSenhaController : ControllerBase
     {
         Business.EsqueceuSenhaBusiness business = new Business.EsqueceuSenhaBusiness();
