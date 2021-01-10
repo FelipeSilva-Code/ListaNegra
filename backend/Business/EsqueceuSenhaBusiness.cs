@@ -30,7 +30,7 @@ namespace backend.Business
             Random random = new Random();
             string codigo = string.Empty;
 
-            for(int i = 1; i < 5; i++)
+            for(int i = 1; i <= 5; i++)
             {
                 int x = random.Next(0, 9);
 

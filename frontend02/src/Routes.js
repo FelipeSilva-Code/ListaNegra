@@ -13,6 +13,7 @@ import EnviarCodigo from './Pages/EnviarCodigo';
 import InserirCodigo from './Pages/InserirCodigo';
 import NovaSenha from './Pages/NovaSenha';
 
+
 export default function Routes () {
     return (
       <BrowserRouter>

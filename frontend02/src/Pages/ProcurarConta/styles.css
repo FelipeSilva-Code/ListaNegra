@@ -7,6 +7,15 @@
     justify-content: center;
 }
 
+.divInputProcurarConta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+
+}
+
 
 .divBtnsProcurarConta{
     width: 50%;
@@ -23,5 +32,16 @@
 
     .divBtnsProcurarConta{
         width: 90%;
+    }
+
+    .divInputProcurarConta > label  {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .divInputProcurarConta > label > input {
+        width: 85%;
     }
 }

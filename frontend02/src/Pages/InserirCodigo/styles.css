@@ -7,6 +7,28 @@
     justify-content: center; 
 }
 
+
+   .inputInserirCodigo{
+       width: 60%;
+   }
+   .inputInserirCodigo > label {
+       width: 100%;
+   }
+
+   .inputInserirCodigo > label > input {
+       width: 100%;
+   }
+
+.pReenviarCodigo{
+    cursor: pointer;
+    color: blue;
+}
+
+.pReenviarCodigo:hover{
+    color: black;
+}
+
+
 @media(max-width:760px){
 
    .containerInserirCodigo{
@@ -16,11 +38,5 @@
    .inputInserirCodigo{
        width: 100%;
    }
-   .inputInserirCodigo > label {
-       width: 100%;
-   }
 
-   .inputInserirCodigo > label > input {
-       width: 100%;
-   }
 }

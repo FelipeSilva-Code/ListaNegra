@@ -67,8 +67,23 @@ export default class ListaNegraApi{
    }
 
    async alterarDadosUsuario(request){
-     const resp = api.put("/listaNegra/alterarDados", request);
-     return (await resp).data;
+     const resp = await api.put("/listaNegra/alterarDados", request);
+     return await resp.data;
+   }
+
+   async procurarConta (email) {
+     const resp = await api.get("/esqueceuSenha?email=" + email );
+     return resp.data;
+   }
+
+   async gerarCodigo (email) {
+     const resp = await api.post("/esqueceuSenha?email=" + email );
+     return resp.data;
+   }
+
+   async alterarSenha (request, idUsuario) {
+     const resp = await api.put("/esqueceuSenha/" + idUsuario, request);
+     return resp.data;
    }
 
 
