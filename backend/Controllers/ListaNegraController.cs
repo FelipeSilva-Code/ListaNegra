@@ -134,28 +134,6 @@ namespace backend.Controllers
             }
         }
 
-        [HttpPut("alterarDados")]
-        public ActionResult<Models.Response.LogadoResponse> AlterarDados (Models.Request.AlteracaoDados request)
-        {
-            try
-            {
-                int idUsuario = request.IdUsuario;
-                
-                Models.TbUsuario usuario = conversor.ParaTbUsuario(request);
-
-                usuario = business.AlterarDados(idUsuario, usuario);
-
-                Models.Response.LogadoResponse logadoResponse = conversorTrocaDados.ParaLogadoResponse(usuario);
-
-                return logadoResponse;
-            }
-            catch (System.Exception ex)
-            {
-                return BadRequest(new Models.Response.ErroResponse(
-                    400, ex.Message
-                ));
-            }
-        }
 
     }
 }

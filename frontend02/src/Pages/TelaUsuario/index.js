@@ -14,19 +14,8 @@ export default function TelaUsuario (props) {
     const [idUsuario, setIdUsario] = useState(props.location.state.idUsuario);
     const [nome, setNome] = useState(props.location.state.nomeUsuario);
     const [email, setEmail] = useState(props.location.state.email);
-    const [senha, setSenha] = useState(props.location.state.senha);
-    const [mostrarSenha, setMostrarSenha] = useState("password");
     const [responseLogado, setResponseLogado] = useState(props.location.state);
     const [mostrarLoading, setMostrarLoading] = useState(false);
-
-    const showSenha = () => {
-        if(mostrarSenha == "password")
-            setMostrarSenha("text")
-
-        else
-            setMostrarSenha("password")
-
-    }
 
     const history = useHistory();
 
@@ -98,24 +87,8 @@ export default function TelaUsuario (props) {
               </label>
             </div>
 
-            <div className="usuarioInput">
-              <label className="loginInput senhaLoginInput">
-                Senha:
-                <input
-                  value={senha}
-                  onChange={(e) => setSenha(e.target.value)}
-                  type={mostrarSenha}
-                  className="form-control"
-                />
-              </label>
-
-              {mostrarSenha == "password" && (
-                <i onClick={showSenha} class="far fa-eye"></i>
-              )}
-
-              {mostrarSenha == "text" && (
-                <i onClick={showSenha} class="far fa-eye-slash"></i>
-              )}
+            <div className="divAlterarSenhaTelaUsuario">
+              <button className="btn btn-outline-primary" >Alterar Senha</button>     
             </div>
 
             <div className="divBtnUsuario">

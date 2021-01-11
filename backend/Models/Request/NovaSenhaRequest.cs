@@ -12,4 +12,9 @@ namespace backend.Models.Request
         public string Senha1 {get; set;}
         public string Senha2 {get; set;}
     }
+
+    public class AlterarSenha : NovaSenhaRequest 
+    {
+        public string SenhaAtual {get; set;}
+    }
 }

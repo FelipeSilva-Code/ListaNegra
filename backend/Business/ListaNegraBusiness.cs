@@ -61,18 +61,6 @@ namespace backend.Business
             db.Alterar(id, tbLista);
         }
 
-        public Models.TbUsuario AlterarDados(int idUsuario, Models.TbUsuario usuario)
-        {
-            usuario = cadastroBusiness.TirarEspacosDosCampos(usuario);
-
-            cadastroBusiness.ValidarEmail(usuario.DsEmail);
-
-            cadastroBusiness.ValidarSenha(usuario.DsSenha);
-
-            cadastroBusiness.ValidarNome(usuario.NmUsuario);
-
-            return db.AlterarDados(idUsuario, usuario);
-        }
 
     }
 }
