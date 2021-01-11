@@ -5,6 +5,7 @@
     background-color: #1c4eb3;
     height: 10vh;
     width: 100%;
+    position: relative;
 }
 @media(max-width:763px){
     .footer{

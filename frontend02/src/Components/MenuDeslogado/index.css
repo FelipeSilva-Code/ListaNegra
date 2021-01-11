@@ -9,12 +9,12 @@
     justify-content: center;
     padding-left: 100px;
     padding-right: 100px;
+    position: relative;
 
 }
 .divHeader{
     display: flex;
     align-items: center;
-    background-color: blanchedalmond;
     height: 12vh;
 }
 .imgLogo{
