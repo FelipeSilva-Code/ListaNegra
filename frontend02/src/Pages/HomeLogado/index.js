@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AdicionarNaLista from "../../assets/images/addNaLista.svg"
 import Listar from "../../assets/images/ListarNaLista.svg";
-import ContainerTotalLogado from '../../Components/ContainerTotal';
+import ContainerTotalLogado from '../../Components/ContainerTotalLogado';
 import "./style.css"
 
 export default function HomeLogado(props) {

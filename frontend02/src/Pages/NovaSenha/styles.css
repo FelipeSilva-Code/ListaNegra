@@ -1,12 +1,3 @@
-.containerNovaSenha{
-    min-height: 78vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: whitesmoke;
-    justify-content: center; 
-}
-
 .divInputsNovaSenha{
     display: flex;
     flex-direction: column;
@@ -14,11 +5,7 @@
 }
 
 @media(max-width:760px){
-
-    .containerNovaSenha{
-        height: 82vh;
-    }
-
+    
     .divInputsNovaSenha {
         width: 100%;
     }

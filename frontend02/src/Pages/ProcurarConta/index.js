@@ -1,13 +1,12 @@
 import React from "react";
 import "./styles.css";
-import Menu from "../../Components/MenuDeslogado";
-import Footer from "../../Components/Footer";
 import ContainerEsqueceuSenha from "../../Components/ContainerEsqueceuSenha"
 import Loading from "../../Components/Loading"
 import { useHistory } from "react-router-dom";
 import ListaNegraApi from "../../services/ListaNegraApi";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import ContainerTotalDeslogado from "../../Components/ContainerTotalDeslogado";
 
 const api = new ListaNegraApi();
 
@@ -43,7 +42,7 @@ export default function ProcurarConta () {
         {mostrarLoading == true && 
             <Loading/>
         }
-        <Menu/>
+        <ContainerTotalDeslogado>
          <ToastContainer/>
           <div className="procurarContaContainer">
 
@@ -64,7 +63,7 @@ export default function ProcurarConta () {
 
 
           </div>
-        <Footer/>
+        </ContainerTotalDeslogado>
         </>
     )
 }

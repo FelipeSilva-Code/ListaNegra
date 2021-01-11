@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./styles.css";
-import Menu from "../../Components/MenuDeslogado"
-import Footer from "../../Components/Footer"
 import { Link, useHistory } from "react-router-dom";
 import ListaNegra from "../../services/ListaNegraApi";
 import { toast, ToastContainer } from "react-toastify";
 import Loading from "../../Components/Loading";
+import ContainerTotalDeslogado from "../../Components/ContainerTotalDeslogado";
 
 const api = new ListaNegra();
 
@@ -47,16 +46,13 @@ export default function Cadastrar () {
 
           toast.error(e.response.data.erro)            
         }
-
-
-
     }
     
     return (
       <>
         <ToastContainer />
         {mostrarLoading === true && <Loading />}
-        <Menu />
+        <ContainerTotalDeslogado>
         <div className="ContainerCadastrar">
           <div className="contMeioCadastrar">
             <h1>Crie sua conta</h1>
@@ -119,7 +115,7 @@ export default function Cadastrar () {
           </div>
         </div>
 
-        <Footer />
+        </ContainerTotalDeslogado>
       </>
     );
 }

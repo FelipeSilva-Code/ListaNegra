@@ -1,17 +1,8 @@
-.ContainerTotalLogin{
-    min-height: 78vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: whitesmoke;
-    justify-content: center;
-    position: relative;
-}
 
 .loginCont{
     height: 65vh;
     box-shadow: 1px 1px 20px   #c7c4c4;
-    width: 36%;
+    width: 36vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,12 +48,10 @@
 }
 
 @media(max-width:930px) {
-.ContainerTotalLogin{
-    height: 82vh;
-}
+
 
 .loginCont{
-    width: 100%;
+    width: 90vw;
     background-color: white;
     box-shadow: none;
 }

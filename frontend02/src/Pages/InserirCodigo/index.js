@@ -1,13 +1,12 @@
 import React from "react";
 import "./styles.css"
-import Menu from "../../Components/MenuDeslogado";
-import Footer from "../../Components/Footer";
 import Loading from "../../Components/Loading";
 import ContainerEsqueceuSenha from "../../Components/ContainerEsqueceuSenha";
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import ListaNegraApi from "../../services/ListaNegraApi";
+import ContainerTotalDeslogado from "../../Components/ContainerTotalDeslogado";
 
 const api = new ListaNegraApi();
 
@@ -64,9 +63,8 @@ export default function InserirCodigo (props) {
         {mostrarLoading == true && 
             <Loading/>
         }
-        <Menu/>
+        <ContainerTotalDeslogado>
          <ToastContainer/>
-            <div className="containerInserirCodigo">
                 <ContainerEsqueceuSenha>
                     <h3>Inserir Código</h3>
 
@@ -90,8 +88,7 @@ export default function InserirCodigo (props) {
                         </div>
                     </div>
                 </ContainerEsqueceuSenha>
-            </div>
-        <Footer/>
+        </ContainerTotalDeslogado>
         </>
     )
 }

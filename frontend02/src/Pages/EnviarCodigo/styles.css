@@ -1,12 +1,3 @@
-.enviarCodigoContainer{
-    min-height: 78vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: whitesmoke;
-    justify-content: center; 
-}
-
 .divBtnsEnviarCodigo{
     width: 100%;
     display: flex;
@@ -28,10 +19,6 @@
 }
 
 @media(max-width:760px){
-
-    .enviarCodigoContainer{
-        min-height: 82vh;
-    }
 
     .divBtnsEnviarCodigo{
         width: 110%;

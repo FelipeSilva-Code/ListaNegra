@@ -4,7 +4,7 @@ import "./styles.css";
 import ListaNegraApi from "../../services/ListaNegraApi";
 import { toast, ToastContainer } from "react-toastify";
 import Loading from "../../Components/Loading";
-import ContainerTotalLogado from "../../Components/ContainerTotal";
+import ContainerTotalLogado from "../../Components/ContainerTotalLogado";
 
 const api = new ListaNegraApi();
 

@@ -1,13 +1,12 @@
 import React from "react";
 import "./styles.css"
-import Menu from "../../Components/MenuDeslogado";
-import Footer from "../../Components/Footer"
 import Loading from "../../Components/Loading";
 import ContainerEsqueceuSenha from "../../Components/ContainerEsqueceuSenha"
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import ListaNegraApi from "../../services/ListaNegraApi";
 import { toast, ToastContainer } from "react-toastify";
+import ContainerTotalDeslogado from "../../Components/ContainerTotalDeslogado";
 
 const api = new ListaNegraApi();
 
@@ -51,7 +50,7 @@ export default function EnviarCodigo (props) {
         {mostrarLoading == true && 
             <Loading/>
         }
-        <Menu/>
+        <ContainerTotalDeslogado>
          <ToastContainer/>
             <div className="enviarCodigoContainer">
                 <ContainerEsqueceuSenha>
@@ -84,7 +83,7 @@ export default function EnviarCodigo (props) {
 
                 </ContainerEsqueceuSenha>
             </div>
-        <Footer/>
+        </ContainerTotalDeslogado>
         </>
     )
 }

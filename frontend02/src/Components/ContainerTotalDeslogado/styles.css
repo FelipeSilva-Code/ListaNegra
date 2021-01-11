@@ -1,5 +1,6 @@
-.containerTotalLogado{ 
+.containerTotalDeslogado{ 
     min-height: 78vh;
+    max-width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,7 +8,8 @@
 }
 
 @media(max-width:760px){
-    .containerTotalLogado{
+    .containerTotalDeslogado{
         min-height: 82vh;
+        width: 100vw;
     }
 }

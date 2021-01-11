@@ -1,11 +1,10 @@
 import React, { useState } from "react"
 import "./styles.css";
-import Menu from "../../Components/MenuDeslogado"
-import Footer from "../../Components/Footer"
 import { Link, useHistory } from "react-router-dom";
 import ListaNegra from "../../services/ListaNegraApi";
 import { ToastContainer, toast } from "react-toastify";
 import Loading from "../../Components/Loading";
+import ContainerTotalDeslogado from "../../Components/ContainerTotalDeslogado";
 
 const api = new ListaNegra();
 
@@ -53,7 +52,7 @@ export default function Login () {
         {mostrarLoading === true && 
           <Loading/>
         }
-        <Menu />
+        <ContainerTotalDeslogado>
 
         <div className="ContainerTotalLogin">
           <div className="loginCont">
@@ -91,7 +90,7 @@ export default function Login () {
           </div>
         </div>
 
-        <Footer/>
+        </ContainerTotalDeslogado>
       </>
     );
 }

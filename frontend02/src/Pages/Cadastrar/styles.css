@@ -1,15 +1,10 @@
-.ContainerCadastrar{
-    min-height: 88vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: whitesmoke;
-}
 
 .contMeioCadastrar{
     height: 75vh;
     box-shadow: 1px 1px 20px   #c7c4c4;
-    width: 50%;
+    width: 50vw;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
@@ -51,12 +46,9 @@
 }
 
 @media(max-width:760px){
-    .ContainerCadastrar{
-        min-height: 82vh;
-    }
 
     .contMeioCadastrar{
-        width: 95%;
+        width: 90vw;
         height: 70vh;
         background-color: white;
         box-shadow: none;
@@ -69,16 +61,16 @@
 
     .loginInput{
         height: 100%;
-        width: 100%;
+        width: 90%;
     }
 
     .loginInput > input {
-        width: 98%;
-        margin-left: 1%;
+        width: 100%;
+
     }
 
     .loginInputSenha{
-        width: 100%;
+        width: 90%;
         flex-direction: column;
         height: 21vh;
     }

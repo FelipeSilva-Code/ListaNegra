@@ -1,23 +1,14 @@
-.containerInserirCodigo{
-    min-height: 78vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: whitesmoke;
-    justify-content: center; 
+
+.inputInserirCodigo{
+    width: 60%;
+}
+.inputInserirCodigo > label {
+   width: 100%;
 }
 
-
-   .inputInserirCodigo{
-       width: 60%;
-   }
-   .inputInserirCodigo > label {
-       width: 100%;
-   }
-
-   .inputInserirCodigo > label > input {
-       width: 100%;
-   }
+.inputInserirCodigo > label > input {
+   width: 100%;
+}
 
 .pReenviarCodigo{
     cursor: pointer;

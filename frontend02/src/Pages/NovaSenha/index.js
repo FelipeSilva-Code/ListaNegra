@@ -1,13 +1,12 @@
 import React from "react";
 import "./styles.css";
-import Menu from "../../Components/MenuDeslogado";
-import Footer from "../../Components/Footer";
 import Loading from "../../Components/Loading";
 import ContainerEsqueceuSenha from "../../Components/ContainerEsqueceuSenha";
 import { useState } from "react";
 import ListaNegraApi from "../../services/ListaNegraApi";
 import { useHistory } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import ContainerTotalDeslogado from "../../Components/ContainerTotalDeslogado";
 
 const api = new ListaNegraApi();
 
@@ -57,9 +56,9 @@ export default function NovaSenha (props) {
         {mostrarLoading == true && 
             <Loading/>
         }
-        <Menu/>
+        
          <ToastContainer/>
-            <div className="containerNovaSenha">
+         <ContainerTotalDeslogado>
                 <ContainerEsqueceuSenha>
                     <h3>Alterar Senha</h3>
 
@@ -81,8 +80,7 @@ export default function NovaSenha (props) {
                     </div>
 
                 </ContainerEsqueceuSenha>
-            </div>
-        <Footer/>
+        </ContainerTotalDeslogado>
         </>
     )
 }

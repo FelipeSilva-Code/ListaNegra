@@ -6,7 +6,7 @@ import ContainerEsqueceuSenha from "../../Components/ContainerEsqueceuSenha"
 import Loading from "../../Components/Loading";
 import ListaNegraApi from "../../services/ListaNegraApi";
 import { useHistory } from "react-router-dom";
-import ContainerTotalLogado from "../../Components/ContainerTotal";
+import ContainerTotalLogado from "../../Components/ContainerTotalLogado";
 
 const api = new ListaNegraApi()
 
