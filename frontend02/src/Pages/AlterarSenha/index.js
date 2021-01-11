@@ -2,12 +2,11 @@ import React, { useState, useRef } from "react";
 import "./styles.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Menu from "../../Components/MenuLogado";
-import Footer from "../../Components/Footer";
 import ContainerEsqueceuSenha from "../../Components/ContainerEsqueceuSenha"
 import Loading from "../../Components/Loading";
 import ListaNegraApi from "../../services/ListaNegraApi";
 import { useHistory } from "react-router-dom";
+import ContainerTotalLogado from "../../Components/ContainerTotal";
 
 const api = new ListaNegraApi()
 
@@ -61,7 +60,7 @@ export default function AlterarSenha (props) {
         {mostrarLoading === true &&
             <Loading/>
         }
-        <Menu estado={responseLogado}/>
+        <ContainerTotalLogado estado={responseLogado}>
          <ToastContainer/>
             <div className="containerAlterarSenha">
                 <ContainerEsqueceuSenha>
@@ -90,7 +89,7 @@ export default function AlterarSenha (props) {
 
                 </ContainerEsqueceuSenha>
             </div>
-        <Footer/>
+        </ContainerTotalLogado>
         </>
     )
 }

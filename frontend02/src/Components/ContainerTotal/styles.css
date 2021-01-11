@@ -1,0 +1,13 @@
+.containerTotalLogado{ 
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: whitesmoke;
+}
+
+@media(max-width:760px){
+    .containerTotalLogado{
+        min-height: 82vh;
+    }
+}

@@ -1,7 +1,7 @@
 .esqueceuSenhaContainer{
     height: 50vh;
     box-shadow: 1px 1px 20px   #c7c4c4;
-    width: 36%;
+    width: 36vw;
     display: flex;
     flex-direction: column;
     align-items: center;

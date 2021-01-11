@@ -4,15 +4,6 @@
 }
 
 
-.containerTelaUsuario{
-    height: 78vh;
-    width: 100vw;
-    background-color: whitesmoke;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .contMeioUsario{
     height: 65vh;
     width: 50%;
@@ -59,10 +50,6 @@
 }
 
 @media(max-width:763px) {
-   .containerTelaUsuario{
-       height: 82vh;
-   }
-
    .contMeioUsario{
        width: 90%;
    }

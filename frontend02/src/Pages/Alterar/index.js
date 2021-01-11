@@ -3,9 +3,8 @@ import './index.css'
 import ListaNegra from '../../services/ListaNegraApi';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Menu from  '../../Components/MenuDeslogado'
-import Footer from "../../Components/Footer"
 import Loading from "../../Components/Loading";
+import ContainerTotalLogado from '../../Components/ContainerTotal';
 
 const api = new ListaNegra();
 
@@ -55,8 +54,7 @@ export default function Alterar (props) {
     return (
       <>
         {mostrarLoading === true && <Loading />}
-        <Menu />
-        <div className="containerAlterar">
+        <ContainerTotalLogado estado={props.location.state}>
           <div className="containerCentralAlterar">
             <h1>Alterar Informações</h1>
 
@@ -117,9 +115,8 @@ export default function Alterar (props) {
           </div>
 
           <ToastContainer />
-        </div>
 
-        <Footer />
+        </ContainerTotalLogado >
       </>
     );
 }

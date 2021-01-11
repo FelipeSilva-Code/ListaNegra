@@ -3,9 +3,8 @@ import ListaNegra from '../../services/ListaNegraApi';
 import {ToastContainer, toast} from 'react-toastify';
 import  './index.css';
 import 'react-toastify/dist/ReactToastify.css'
-import Menu from "../../Components/MenuLogado"
-import Footer from "../../Components/Footer"
 import Loading from "../../Components/Loading";
+import ContainerTotalLogado from "../../Components/ContainerTotal";
 
 const api = new ListaNegra()
 
@@ -51,75 +50,75 @@ export default function Cadastrar(props) {
     return (
       <>
         {mostrarLoading === true && <Loading />}
-        <Menu estado={responseLogado} />
-        <div className="containerCadastrar">
-          <div className="containerCentroCadastrar">
-            <div>
-              <h2 className="tituloCadastrar">
-                Adicionar na <span>Lista Negra</span>
-              </h2>
-            </div>
+        <ContainerTotalLogado estado={responseLogado} >
+    
+            <div className="containerCentroCadastrar">
+              <div>
+                <h2 className="tituloCadastrar">
+                  Adicionar na <span>Lista Negra</span>
+                </h2>
+              </div>
 
-            <div className="inputsCadastrar">
-              <label>Nome:&nbsp; &nbsp;</label>
-              <input
-                className="form-control"
-                type="text"
-                value={nome}
-                onChange={(e) => setNome(e.target.value)}
-              />
-            </div>
+              <div className="inputsCadastrar">
+                <label>Nome:&nbsp; &nbsp;</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  value={nome}
+                  onChange={(e) => setNome(e.target.value)}
+                />
+              </div>
 
-            <div className="inputsCadastrar">
-              <label>Motivo: &nbsp; </label>
-              <input
-                className="form-control"
-                type="text"
-                value={motivo}
-                onChange={(e) => setMotivo(e.target.value)}
-              />
-            </div>
+              <div className="inputsCadastrar">
+                <label>Motivo: &nbsp; </label>
+                <input
+                  className="form-control"
+                  type="text"
+                  value={motivo}
+                  onChange={(e) => setMotivo(e.target.value)}
+                />
+              </div>
 
-            <div className="inputsCadastrar">
-              <label>Data:&nbsp;&nbsp;&nbsp; &nbsp;</label>
-              <input
-                className="form-control"
-                type="date"
-                value={inclusao}
-                onChange={(e) => setInclusao(e.target.value)}
-              />
-            </div>
+              <div className="inputsCadastrar">
+                <label>Data:&nbsp;&nbsp;&nbsp; &nbsp;</label>
+                <input
+                  className="form-control"
+                  type="date"
+                  value={inclusao}
+                  onChange={(e) => setInclusao(e.target.value)}
+                />
+              </div>
 
-            <div className="inputsCadastrar">
-              <label>Local: &nbsp; &nbsp;</label>
-              <select
-                className="form-control"
-                onChange={(e) => setLocal(e.target.value)}
-                id="local"
-                value={local}
-              >
-                <option value="Outro">Outro</option>
-                <option value="Escola">Escola</option>
-                <option value="Trabalho">Trabalho</option>
-                <option value="Rua">Rua</option>
-                <option value="Familía">Familia</option>
-                <option value="Estadio">Estadio</option>
-                <option value="Mercado">Mercado</option>
-                <option value="Internet">Internet</option>
-              </select>
-            </div>
-                          
-            <div className="divBtnAdicionar">
-              <button className="btn btn-primary" onClick={salvarClick}>
-                Adicionar
-              </button>
-            </div>
+              <div className="inputsCadastrar">
+                <label>Local: &nbsp; &nbsp;</label>
+                <select
+                  className="form-control"
+                  onChange={(e) => setLocal(e.target.value)}
+                  id="local"
+                  value={local}
+                >
+                  <option value="Outro">Outro</option>
+                  <option value="Escola">Escola</option>
+                  <option value="Trabalho">Trabalho</option>
+                  <option value="Rua">Rua</option>
+                  <option value="Familía">Familia</option>
+                  <option value="Estadio">Estadio</option>
+                  <option value="Mercado">Mercado</option>
+                  <option value="Internet">Internet</option>
+                </select>
+              </div>
+                            
+              <div className="divBtnAdicionar">
+                <button className="btn btn-primary" onClick={salvarClick}>
+                  Adicionar
+                </button>
+              </div>
 
-            <ToastContainer />
-          </div>
-        </div>
+              <ToastContainer />
+            </div>
+  
 
-        <Footer />
+        </ContainerTotalLogado >
       </>
     );
 }

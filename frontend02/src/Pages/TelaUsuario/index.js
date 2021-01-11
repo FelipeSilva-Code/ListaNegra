@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import Footer from "../../Components/Footer";
-import Menu from "../../Components/MenuLogado";
 import "./styles.css";
 import ListaNegraApi from "../../services/ListaNegraApi";
 import { toast, ToastContainer } from "react-toastify";
 import Loading from "../../Components/Loading";
+import ContainerTotalLogado from "../../Components/ContainerTotal";
 
 const api = new ListaNegraApi();
 
@@ -57,10 +56,9 @@ export default function TelaUsuario (props) {
     return (
       <>
         {mostrarLoading === true && <Loading />}
-        <Menu estado={props.location.state} />
+        <ContainerTotalLogado estado={props.location.state} >
         <ToastContainer />
 
-        <div className="containerTelaUsuario">
           <div className="contMeioUsario">
             <h3>Seus Dados</h3>
 
@@ -106,9 +104,9 @@ export default function TelaUsuario (props) {
               </button>
             </div>
           </div>
-        </div>
+ 
 
-        <Footer />
+        </ContainerTotalLogado> 
       </>
     );
 }
