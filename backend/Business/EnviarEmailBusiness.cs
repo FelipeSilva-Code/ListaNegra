@@ -46,7 +46,7 @@ namespace BackEnd.Business
 
                     if(_env.IsDevelopment())
                     {
-                        await client.ConnectAsync(_smptSettings.Server, _smptSettings.Port, false);
+                        await client.ConnectAsync(_smptSettings.Server, _smptSettings.Port, true);
                     }
                     else 
                     {
