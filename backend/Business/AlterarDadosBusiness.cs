@@ -23,12 +23,14 @@ namespace backend.Business
             return db.AlterarDados(idUsuario, usuario);
         }     
 
-        public void VerSeSenhaAtualEstaCorreta (string senhaPassada, int idUsuario)
+        public string VerSeSenhaAtualEstaCorreta (string senhaPassada, int idUsuario)
         {
             string senhaAtual = db.PegarSenhaAtual(idUsuario);
 
             if(senhaAtual != senhaPassada)
                 throw new ArgumentException("A senha atual está incorreta.");
+            else
+                return senhaAtual;    
         }   
     }
 }

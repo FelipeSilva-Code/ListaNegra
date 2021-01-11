@@ -46,10 +46,13 @@ namespace backend.Controllers
         {
             try
             {
-                business.VerSeSenhaAtualEstaCorreta(alterarSenha.SenhaAtual, idUsuario);
+                string senhaAtual = business.VerSeSenhaAtualEstaCorreta(alterarSenha.SenhaAtual, idUsuario);
 
                 cadastroBusiness.VerSeSenhasSaoIguais(alterarSenha.Senha1, alterarSenha.Senha2);
 
+                if(senhaAtual == alterarSenha.Senha1)
+                    throw new ArgumentException("A nova senha não pode ser igual a senha antiga.");
+                
                 esqueceuSenhaBusiness.AlterarSenha(alterarSenha.Senha1, idUsuario);
 
                 return "Senha alterada.";

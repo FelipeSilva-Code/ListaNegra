@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: "https://lista-negra-felipe.herokuapp.com",
+  baseURL: "http://localhost:5000",
 });
 
 export default class ListaNegraApi{
@@ -59,7 +59,7 @@ export default class ListaNegraApi{
        formData.append("inclusao", ln.inclusao);
        formData.append("foto", ln.foto);
 
-       const resp = await api.put(`/listanegra/${id}`, formData, {
+       const resp = await api.put(`/alterarDados/${id}`, formData, {
          headers: { "content-type": "multipart/form-data" },
        });
        console.log(resp);
@@ -83,6 +83,11 @@ export default class ListaNegraApi{
 
    async alterarSenha (request, idUsuario) {
      const resp = await api.put("/esqueceuSenha/" + idUsuario, request);
+     return resp.data;
+   }
+
+   async novaSenha (request, idUsuario) {
+     const resp = await api.put("/alterarDados/alterarSenha/" + idUsuario, request);
      return resp.data;
    }
 

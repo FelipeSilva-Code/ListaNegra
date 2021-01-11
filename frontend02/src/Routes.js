@@ -12,6 +12,7 @@ import ProcurarConta from './Pages/ProcurarConta';
 import EnviarCodigo from './Pages/EnviarCodigo';
 import InserirCodigo from './Pages/InserirCodigo';
 import NovaSenha from './Pages/NovaSenha';
+import AlterarSenha from './Pages/AlterarSenha';
 
 
 export default function Routes () {
@@ -30,6 +31,7 @@ export default function Routes () {
           <Route path="/enviarCodigo" exact component={EnviarCodigo} />
           <Route path="/inserirCodigo" exact component={InserirCodigo} />
           <Route path="/novaSenha" exact component={NovaSenha} />
+          <Route path="/alterarSenha" exact component={AlterarSenha} />
         </Switch>
       </BrowserRouter>
     );

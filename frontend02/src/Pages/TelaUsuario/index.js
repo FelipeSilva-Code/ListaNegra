@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import Footer from "../../Components/Footer";
-import MenuDeslogado from "../../Components/MenuDeslogado";
+import Menu from "../../Components/MenuLogado";
 import "./styles.css";
 import ListaNegraApi from "../../services/ListaNegraApi";
 import { toast, ToastContainer } from "react-toastify";
@@ -31,8 +31,7 @@ export default function TelaUsuario (props) {
         const request = {
         "IdUsuario": idUsuario,
         "NomeUsuario": nome,
-        "Email": email,
-        "Senha": senha,
+        "Email": email
         };
 
         const resp = await api.alterarDadosUsuario(request);
@@ -51,12 +50,14 @@ export default function TelaUsuario (props) {
         }
     }
 
-    console.log(props);
+    const irParaTelaDeAlterarSenha = () => {
+      history.push({pathname:"/alterarSenha", state: props.location.state});
+    } 
 
     return (
       <>
         {mostrarLoading === true && <Loading />}
-        <MenuDeslogado />
+        <Menu estado={props.location.state} />
         <ToastContainer />
 
         <div className="containerTelaUsuario">
@@ -88,7 +89,12 @@ export default function TelaUsuario (props) {
             </div>
 
             <div className="divAlterarSenhaTelaUsuario">
-              <button className="btn btn-outline-primary" >Alterar Senha</button>     
+              <button
+                onClick={irParaTelaDeAlterarSenha}
+                className="btn btn-outline-primary"
+              >
+                Alterar Senha
+              </button>
             </div>
 
             <div className="divBtnUsuario">
