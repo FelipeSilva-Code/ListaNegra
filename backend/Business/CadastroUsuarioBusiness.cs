@@ -30,10 +30,6 @@ namespace backend.Business
         {
             if(String.IsNullOrEmpty(email))
                 throw new ArgumentException("O e-mail é obrigatório");  
-         
-            else if (!email.Contains("@gmail.com") && !email.Contains("@hotmail.com") && !email.Contains("@bol.com"))
-                throw new ArgumentException("O e-mail está incorreto.");
-
         }
 
         public void verSeEmailJaEstaCadastrado (string email)
