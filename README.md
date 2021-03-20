@@ -3,7 +3,13 @@
 O ListaNegra é um projeto que envolve uma comunicação entre o Front-End e o Back-End. 
 Nesse projeto a ideia é permitir que os usuários coloquem na sua lista pessoal uma pessoa que a deixou magoada.
 
-O Projeto Lista Negra foi feito com o React.Js no Front-End e com .Net Core 3.1 no Back-End.
+O Front-End do projeto foi realizado usando: 
+ - React.Js 
+
+O Back-End do projeto foi realizado usando:
+ - .Net Core 3.1
+ - MySQL
+ - Entity Framework
 
 Nesse projeto é possivel:
  - Cadastrar-se
